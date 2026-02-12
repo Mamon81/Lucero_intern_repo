@@ -122,7 +122,7 @@ User Manual for Jianna Lucero
 
 # One thing people often misunderstand about me is...
 
-- If I'm in a big friend group and we're out, I tend to be quiet sometimes as I prefer one on one conversations rather than as a big group, so people might assume I'm just not having fun.
+- People assume that I'm mostly am a quiet person when you first get to know me, but once you start hanging out with me more, I tend to be a bit more talkative especially when it comes to my hyperfixations.
 
 # A fun fact about me...
 
