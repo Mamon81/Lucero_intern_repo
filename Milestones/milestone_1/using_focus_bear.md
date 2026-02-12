@@ -1,5 +1,7 @@
 Jianna Monique M. Lucero
 
+Using Focus Bear
+
 1. Inability to edit Focus Logs
 
 During the first few focus sessions, I make some mistakes occasionally, such as labeling an intention or achievement incorrectly or forgetting to set the timer correctly, and I would like to restart the session. However, after checking the Focus Log section to edit the details of my section or delete test sessions or sessions with the wrong timer, I realized that I am unable to edit them. 
