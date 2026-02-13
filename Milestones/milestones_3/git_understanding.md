@@ -72,6 +72,9 @@ Compared to manually reviewing commits, git bisect is significantly faster and m
 
 1. What makes a good commit message?
 
+A good commit message is that it is able to clearly communicate "what" exactly is the change being contained in the commit as well as "why" is the change being applied. This ensures that future readers as well as other team members are able to understand your original intent of the commit without needing to guess it. Furthermore, a good commit message should represent the commit's single, focused change instead of a mixture of unrelated updates. In conclusion, a good commit message should be descriptive instead of vague in order to ensure that the repository's history and its pushed commits are easy to navigate and review, even if new commits and changes to the code are being applied. 
+
+
 2. How does a clear commit message help in team collaboration?
 
 3. How can poor commit messages cause issues later?
