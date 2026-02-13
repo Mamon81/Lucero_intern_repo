@@ -67,3 +67,11 @@ Git bisect can be used in a real-world debugging situation when it comes to deal
 3. How does it compare to manually reviewing commits?
 
 Compared to manually reviewing commits, git bisect is significantly faster and more reliable due to its binary search algorithm. During git bisect, it involves cutting the searching of commits into half in each step which is quicker compared to checking commits one by one. Furthermore, manually reviewing commits is not only time consuming but can also lead to misunderstandings due to vague commit messages or overlooked subtle errors. On the other hand, git bisect can be fully automated using scripts in order to determine the culprit without human intervention.
+
+# Writing Meaningful Commit Messages
+
+1. What makes a good commit message?
+
+2. How does a clear commit message help in team collaboration?
+
+3. How can poor commit messages cause issues later?
