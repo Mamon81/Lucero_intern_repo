@@ -1,6 +1,6 @@
 Jianna Monique M. Lucero
 
-Git concept: staging vs committing
+# Git concept: staging vs committing
 
 1. What is the difference between staging and committing?
 
@@ -14,7 +14,7 @@ Git separates staging and committing in order to give developers granular contro
 
 Staging changes without committing is useful for being able to prepare clean and focused commits, to better manage work in progress and effectively separate unrelated changes or modifications. Staging serves as a temporary holding space, allowing me to be able to hand-pick specific files or changes that belong to a single, finished task. By grouping similar changes/files into clean commits, I can also be able to keep temporary files/changes out of the shared repository before committing. In conclusion, staging changes before committing can transform my messy working directory into a more organize one, making it easier for the rest of my team to be able to track the progress of the project, understand how it's slowly evolving, and be able to undo any specific changes in case something goes wrong.
 
-Branching & Team Collaboration
+# Branching & Team Collaboration
 
 1. Why is pushing directly to main problematic?
 
@@ -27,3 +27,29 @@ Branches help with reviewing the code as it can provide a dedicated and isolated
 3. What happens if two people edit the same file on different branches?
 
 If two people edit the same file on different branches, Git often handles it automatically depending on the changes being applied to the same file. If the edits are in separate lines of the file, Git will simply merge both sets of edits into a single version with no issues present. However, if both individuals modify the exact same line, Git will stop the merge, causing a merge conflict. If this happens, the person who is responsible for merging should manually review the code, decide which changes to keep, and remove the conflict markers before the final version is committed to the repository.
+
+# Advanced Git Commands & When to Use Them
+
+1. What does each command do?
+
+git checkout main -- restores a clean version of a specific file from the main branch by pulling it from the main branch. It's not only used to overwrite local errors but also serves as an "undo" button for specific files by restoring them back to the project's stable and working form. 
+
+git cherry-pick - allows me to grab a single, specific commit from one branch and apply it to another branch without merging everything else.  This results in the creation of a new, distinct commit on my current branch that replicates the exact changes from the commit from the branch I selected.
+
+git log - lists down every change made to the repository in reverse order. The details provided in the log include who made the change, what the change was and when the change occurred during the branch's lifecycle. It also provides essential context for a team to see how their project has evolved over days, months, or years.
+
+git blame - inspects a code line by line in order to identify the last person to modify every single line of a file. It provides a clear map of who modified each line for the entire codebase. It displays the commit hash and timestamps for every line to better pinpoint exactly when a specific change was introduced.
+
+2. When would you use it in a real project (hint: these are all really important in long running projects with multiple developers)?
+
+git checkout main -- is used when I've accidentally modified, removed or in some cases corrupted a file and I need to instantly revert it back to its original state from the main branch. This is especially helpful when I'm trying to fix an error or bug, but the error or bug got even worse than before, and I need to quickly restore the code back to its functional version.
+
+git cherry-pick - is used when a teammate has written a fix to a critical bug on a different branch that I need immediately, but I'm not ready to pull in the rest of their unfinished work on their respective branch. This command is essential to me as it can allow me to continue being productive on my own branch by adapting important updates or changes from other branches without waiting for them to be finalized.
+
+git log - in cases where a feature starts malfunctioning, the command is used during debugging in order to trace the exact timeline of when the feature starts malfunctioning. It is also used to review the contributions of my team members during the development cycle of the project.
+
+git blame - is used when I encountered a confusing piece of code and need to identify who the original author is of said code to ask for clarifications or to provide feedback during a review. This command makes it easier to deliver a private feedback session to the right person if ever a bug is discovered.
+
+3. What surprised you while testing these commands?
+
+What surprised me when using these commands is how easy it is to apply specific changes from one branch to the current branch I'm working on. It improves my productivity now that I don't need to wait until the branch I want to merge onto my current branch is complete. In addition, I am surprised by the type of commands that allow me to view the complete and detailed history of my previous commits as it can help be more aware on specific commits in cases when a feature or bug goes wrong. I was impressed that it not only allowed me to view who made the change, but also what the change was and when that change was made. 
