@@ -5,6 +5,6 @@ int add(int a, int b) {
 }
 
 int main (){
-    printf("Result: %d\n", add(3, 4));
+    printf("Result: %d\n", add(3, 4)); // Should print "Result: 7"
     return 0;
 }
