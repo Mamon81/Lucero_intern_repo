@@ -12,7 +12,9 @@ Git separates staging and committing in order to give developers granular contro
 
 3. When would you want to stage changes without committing?
 
-Staging changes without committing is useful for being able to prepare clean and focused commits, to better manage work in progress and effectively separate unrelated changes or modifications. Staging serves as a temporary holding space, allowing me to be able to hand-pick specific files or changes that belong to a single, finished task. By grouping similar changes/files into clean commits, I can also be able to keep temporary files/changes out of the shared repository before committing. In conclusion, staging changes before committing can transform my messy working directory into a more organize one, making it easier for the rest of my team to be able to track the progress of the project, understand how it's slowly evolving, and be able to undo any specific changes in case something goes wrong.
+Staging changes without committing is useful for being able to prepare clean and focused commits, to better manage work in progress and effectively separate unrelated changes or modifications. Staging serves as a temporary holding space, allowing me to be able to hand-pick specific files or changes that belong to a single, finished task. 
+
+By grouping similar changes/files into clean commits, I can also be able to keep temporary files/changes out of the shared repository before committing. In conclusion, staging changes before committing can transform my messy working directory into a more organized one, making it easier for the rest of my team to be able to track the progress of the project, understand how it's slowly evolving, and be able to undo any specific changes in case something goes wrong.
 
 # Branching & Team Collaboration
 
@@ -22,7 +24,7 @@ Pushing directly to main is problematic because it can compromise the stability 
 
 2. How do branches help with reviewing code?
 
-Branches help with reviewing the code as it can provide a dedicated and isolated area wherein changes for a specific task can be closely inspected while the stable part of the project in the main branch is not affected. Since a specific branch is mainly focused on a single feature or fix, this gives reviewers and testers the opportunity to provide a more detailed feedback on a code that is easily manageable compared to being overwhelmed by unecessary or unrelated changes. In summary, by making branches, this ensures that only high-quality and tested changes are merged in to main codebase, making the entire development process of a project more organized and reliable.
+Branches help with reviewing the code as it can provide a dedicated and isolated area wherein changes for a specific task can be closely inspected while the stable part of the project in the main branch is not affected. Since a specific branch is mainly focused on a single feature or fix, this gives reviewers and testers the opportunity to provide a more detailed feedback on a code that is easily manageable compared to being overwhelmed by unnecessary or unrelated changes. In summary, by making branches, this ensures that only high-quality and tested changes are merged in to main codebase, making the entire development process of a project more organized and reliable.
 
 3. What happens if two people edit the same file on different branches?
 
@@ -76,7 +78,9 @@ A good commit message is that it is able to clearly communicate "what" exactly i
 
 2. How does a clear commit message help in team collaboration?
 
-A clear commit message can help in team collaboration by serving as a reliable way to effectively communicate between the members of a team. By using a clear commit message, it can allow other members in the team to be able to understand the context and reasoning behind a change in the codebase. This also reduces the need to interrupt the author for clarification on the commit message since the commit message is able to clearly convey the purpose of the change to the code base. By making the commit message clear on what and why the change is, these messages are able to provide essential documentation that makes reviewing the code more proficient and less prone to misunderstanding. Furthermore, it makes it easier for a team to be able to navigate the repository's history, track the progress of a specific feature, and be able to easily pinpoint the origin of bugs during debugging and troubleshooting. In conclusion, clear commit messages can create a professional environment where the entire team can effectively communicate with one another thanks to maintaining a traceable codebase throughout the entire term of a project.
+A clear commit message can help in team collaboration by serving as a reliable way to effectively communicate between the members of a team. By using a clear commit message, it can allow other members in the team to be able to understand the context and reasoning behind a change in the codebase. This also reduces the need to interrupt the author for clarification on the commit message since the commit message is able to clearly convey the purpose of the change to the code base. 
+
+By making the commit message clear on what and why the change is, these messages are able to provide essential documentation that makes reviewing the code more proficient and less prone to misunderstanding. Furthermore, it makes it easier for a team to be able to navigate the repository's history, track the progress of a specific feature, and be able to easily pinpoint the origin of bugs during debugging and troubleshooting. In conclusion, clear commit messages can create a professional environment where the entire team can effectively communicate with one another thanks to maintaining a traceable codebase throughout the entire term of a project.
 
 3. How can poor commit messages cause issues later?
 
