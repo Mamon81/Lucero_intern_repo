@@ -91,3 +91,92 @@ logDayAndWeather("Tuesday", "cloudy");
 
 I have rewrote the messy code into a more cleaner and structured format. I have eliminated deep nesting and added a case that handles invalid data immediately. I also made the day and weather data into constants, making the code more maintainable and easier when adding new days or weather types as it no longer requires changing the core logic of the function.
 
+# Naming Variables & Functions
+
+## Best Practices for Naming Variables and Functions
+
+*Be Descriptive
+
+Names should clearly convey the purpose. Avoid using generic terms like "temp" or "x".
+
+*Use Consistent Conventions
+
+Apply a uniform style (e.g., numberMonth, number_year) based on the standards on the language or framework used in the project.
+
+*Avoid Abbreviations
+
+Spell out words fully unless the abbreviation is universally accepted throughout the codebase, such as img.
+
+*Use English
+
+Ensure the names are all in English as it is likely a common language for global developers.
+
+*Make Names Searchable
+
+Avoid single-letter names or common words as it can be difficult to search them up to modify or review them.
+
+*Avoid Misleading Names
+
+Ensure the names accurately reflects the data/entity in order to avoid any misunderstandings.
+
+## Example of Unclear Variables Names
+
+```javascript
+// Unclear variable names on data on days and weather type
+const d = [
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday", 
+    "Sunday"
+];
+
+const w = [
+    "sunny", 
+    "windy", 
+    "cloudy", 
+    "rainy", 
+    "stormy"
+];
+```
+The section of code provided above is an example of unclear variable names as it uses only single-letter variables like d and w. By using single-letter variables, it fails to communicate the intent on the type of data being stored, and cannot immediately be searched up in a large codebase.
+
+## Refactored Example of Unclear Variable Names
+
+```javascript
+// Refactored variable names on data on days and weather type
+const VALID_DAYS = [
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday", 
+    "Sunday"
+];
+
+const VALID_WEATHER = [
+    "sunny", 
+    "windy", 
+    "cloudy", 
+    "rainy", 
+    "stormy"
+];
+```
+I replaced the single letter variables into names that clearly reveal their intent or purpose. I changed the data conveying days into 'VALID_DAYS' and weather types into VALID_WEATHER in order to clearly communicate what kind of data is being stored without the need to add extra comments.
+
+## Reflection on Naming Variables & Functions
+
+1. What makes a good variable or function name?
+
+A good variable or function name is one that can clearly convey their intent. This means that it is able to communicate why this variable or function exists, what it does, and how its used without the need for extra comments. It should also be descriptive to provide enough context such as using nouns for variables/data and verbs for functions. Lastly, a good variable or function name should follow established naming conventions based on the programming language or framework used for the project, to ensure that the code remains consistent and professional for the entire team.
+
+2. What issues can arise from poorly named variables?
+
+Using poorly named variables forces developers to constantly remember the hidden meaning behind those variables since they are unable to clearly convey the intent behind them. It also increases the risk to introducing logic errors or bugs during maintenance. For example, if a variable is renamed to a different purpose but forgot to change its name can result to difficult to find bugs. Furthermore, unclear names make it difficult to navigate and search, especially in a large codebase.
+
+3. How did refactoring improves code readability?
+
+Refactoring improves code readability as it restructures the code to a cleaner and organized without altering its purpose for the user. By applying techniques such as renaming variables and functions for clarity and breaking down large methods into smaller single-purpose functions, it results in the code becoming more easier for me and my team to navigate and understand. Furthermore, this also reduces the need for developers to be able to decipher my code and more time contributing to the project's development.
