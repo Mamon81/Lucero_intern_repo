@@ -1,4 +1,4 @@
-Jianna Monique M. Lucero 
+Jianna Monique M. Lucero
 
 Set up VS Code and learn keyboard shortcuts
 
@@ -28,7 +28,7 @@ My Top 10 Shortcuts
 
 For me, the shortcuts that I think will be the most useful in my daily work are the following:
 
-- Ctrl + P 
+- Ctrl + P
 
 While coding or doing my tasks, I often need to open dozens of files at the same time. Instead of manually exploring each folder and finding the file I want, I can easily search up the file immediately.
 

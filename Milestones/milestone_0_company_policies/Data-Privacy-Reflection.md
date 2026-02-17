@@ -20,10 +20,10 @@ To ensure that I handle data securely in my daily tasks, I should do the followi
 
 When storing sensitive information safely, it should be stored in encrypted environments, such as Focus Bear's double-encrypted habit databases, and should be shared only through secure, authorized channels instead of public platforms or unsecured Wi-Fi.
 
-When sharing sensitive information safely with my colleagues and teammates, I should ensure that it is directed only to the intended personnel and that any physical documents are kept in locked places when not in use. 
+When sharing sensitive information safely with my colleagues and teammates, I should ensure that it is directed only to the intended personnel and that any physical documents are kept in locked places when not in use.
 
 When disposing sensitive information safely, digital storage must be securely wiped while physical information should be shredded to ensure that confidential details cannot be recovered or accessed after they are no longer needed.
 
 3. What are some common mistakes that lead to data privacy issues, and how can they be avoided?
 
-Some common mistakes that can lead to data privacy issues include human errors such as sending confidential information to the wrong person/email, using weak passwords, or falling for phishing attacks which can compromise login credentials. These mistakes can be avoided by double-checking recipients before sending the email, utilizing password managers, and to never click on any suspicious links or download attachments from unknown sources. 
+Some common mistakes that can lead to data privacy issues include human errors such as sending confidential information to the wrong person/email, using weak passwords, or falling for phishing attacks which can compromise login credentials. These mistakes can be avoided by double-checking recipients before sending the email, utilizing password managers, and to never click on any suspicious links or download attachments from unknown sources.

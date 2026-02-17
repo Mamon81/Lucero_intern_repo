@@ -29,5 +29,3 @@ Some common UX pitfalls or communication pitfalls that might make Focus Bear les
 3. What is one practical change you can make in your work to better support vulnerable populations?
 
 One practical change I can make in my work to better support vulnerable populations is through the way I can communicate with them. As mentioned before, it can be done by using simple and plain language and ensure that there is no confusion during the conversation. I can offer different ways of communicating with them such as visual, written or audio to better accomodate how they would like to communicate. By using simple, clear and direct language, it can ensure that the information is conveyed and understood and preventing them from feeling overwhelmed or confused.
-
-

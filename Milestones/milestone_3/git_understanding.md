@@ -12,7 +12,7 @@ Git separates staging and committing in order to give developers granular contro
 
 3. When would you want to stage changes without committing?
 
-Staging changes without committing is useful for being able to prepare clean and focused commits, to better manage work in progress and effectively separate unrelated changes or modifications. Staging serves as a temporary holding space, allowing me to be able to hand-pick specific files or changes that belong to a single, finished task. 
+Staging changes without committing is useful for being able to prepare clean and focused commits, to better manage work in progress and effectively separate unrelated changes or modifications. Staging serves as a temporary holding space, allowing me to be able to hand-pick specific files or changes that belong to a single, finished task.
 
 By grouping similar changes/files into clean commits, I can also be able to keep temporary files/changes out of the shared repository before committing. In conclusion, staging changes before committing can transform my messy working directory into a more organized one, making it easier for the rest of my team to be able to track the progress of the project, understand how it's slowly evolving, and be able to undo any specific changes in case something goes wrong.
 
@@ -34,9 +34,9 @@ If two people edit the same file on different branches, Git often handles it aut
 
 1. What does each command do?
 
-git checkout main -- restores a clean version of a specific file from the main branch by pulling it from the main branch. It's not only used to overwrite local errors but also serves as an "undo" button for specific files by restoring them back to the project's stable and working form. 
+git checkout main -- restores a clean version of a specific file from the main branch by pulling it from the main branch. It's not only used to overwrite local errors but also serves as an "undo" button for specific files by restoring them back to the project's stable and working form.
 
-git cherry-pick - allows me to grab a single, specific commit from one branch and apply it to another branch without merging everything else.  This results in the creation of a new, distinct commit on my current branch that replicates the exact changes from the commit from the branch I selected.
+git cherry-pick - allows me to grab a single, specific commit from one branch and apply it to another branch without merging everything else. This results in the creation of a new, distinct commit on my current branch that replicates the exact changes from the commit from the branch I selected.
 
 git log - lists down every change made to the repository in reverse order. The details provided in the log include who made the change, what the change was and when the change occurred during the branch's lifecycle. It also provides essential context for a team to see how their project has evolved over days, months, or years.
 
@@ -54,7 +54,7 @@ git blame - is used when I encountered a confusing piece of code and need to ide
 
 3. What surprised you while testing these commands?
 
-What surprised me when using these commands is how easy it is to apply specific changes from one branch to the current branch I'm working on. It improves my productivity now that I don't need to wait until the branch I want to merge onto my current branch is complete. In addition, I am surprised by the type of commands that allow me to view the complete and detailed history of my previous commits as it can help be more aware on specific commits in cases when a feature or bug goes wrong. I was impressed that it not only allowed me to view who made the change, but also what the change was and when that change was made. 
+What surprised me when using these commands is how easy it is to apply specific changes from one branch to the current branch I'm working on. It improves my productivity now that I don't need to wait until the branch I want to merge onto my current branch is complete. In addition, I am surprised by the type of commands that allow me to view the complete and detailed history of my previous commits as it can help be more aware on specific commits in cases when a feature or bug goes wrong. I was impressed that it not only allowed me to view who made the change, but also what the change was and when that change was made.
 
 # Understand git bisect
 
@@ -64,7 +64,7 @@ Git bisect is a command used during debugging that utilizes a binary search algo
 
 2. When would you use it in a real-world debugging situation?
 
-Git bisect can be used in a real-world debugging situation when it comes to dealing with subtle bugs or a visible decreases in performance. It is also particularly useful in cases wherein a user reports an issue in a specific release version that isn't present in current development. During this case, it is highly possible that it will involve you searching thoroughly through hundreds or thousands of commits to find the breaking point. This kind of case means that git bisect is a highly recommended command to use especially since it involves combing through hundreds or thousands of commits in order to find where the bug originated. 
+Git bisect can be used in a real-world debugging situation when it comes to dealing with subtle bugs or a visible decreases in performance. It is also particularly useful in cases wherein a user reports an issue in a specific release version that isn't present in current development. During this case, it is highly possible that it will involve you searching thoroughly through hundreds or thousands of commits to find the breaking point. This kind of case means that git bisect is a highly recommended command to use especially since it involves combing through hundreds or thousands of commits in order to find where the bug originated.
 
 3. How does it compare to manually reviewing commits?
 
@@ -74,11 +74,11 @@ Compared to manually reviewing commits, git bisect is significantly faster and m
 
 1. What makes a good commit message?
 
-A good commit message is that it is able to clearly communicate "what" exactly is the change being contained in the commit as well as "why" is the change being applied. This ensures that future readers as well as other team members are able to understand your original intent of the commit without needing to guess it. Furthermore, a good commit message should represent the commit's single, focused change instead of a mixture of unrelated updates. In conclusion, a good commit message should be descriptive instead of vague in order to ensure that the repository's history and its pushed commits are easy to navigate and review, even if new commits and changes to the code are being applied. 
+A good commit message is that it is able to clearly communicate "what" exactly is the change being contained in the commit as well as "why" is the change being applied. This ensures that future readers as well as other team members are able to understand your original intent of the commit without needing to guess it. Furthermore, a good commit message should represent the commit's single, focused change instead of a mixture of unrelated updates. In conclusion, a good commit message should be descriptive instead of vague in order to ensure that the repository's history and its pushed commits are easy to navigate and review, even if new commits and changes to the code are being applied.
 
 2. How does a clear commit message help in team collaboration?
 
-A clear commit message can help in team collaboration by serving as a reliable way to effectively communicate between the members of a team. By using a clear commit message, it can allow other members in the team to be able to understand the context and reasoning behind a change in the codebase. This also reduces the need to interrupt the author for clarification on the commit message since the commit message is able to clearly convey the purpose of the change to the code base. 
+A clear commit message can help in team collaboration by serving as a reliable way to effectively communicate between the members of a team. By using a clear commit message, it can allow other members in the team to be able to understand the context and reasoning behind a change in the codebase. This also reduces the need to interrupt the author for clarification on the commit message since the commit message is able to clearly convey the purpose of the change to the code base.
 
 By making the commit message clear on what and why the change is, these messages are able to provide essential documentation that makes reviewing the code more proficient and less prone to misunderstanding. Furthermore, it makes it easier for a team to be able to navigate the repository's history, track the progress of a specific feature, and be able to easily pinpoint the origin of bugs during debugging and troubleshooting. In conclusion, clear commit messages can create a professional environment where the entire team can effectively communicate with one another thanks to maintaining a traceable codebase throughout the entire term of a project.
 

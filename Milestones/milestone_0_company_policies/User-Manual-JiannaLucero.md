@@ -36,7 +36,7 @@ User Manual for Jianna Lucero
 
 ## COMMUNICATION STYLE
 
-# I prefer messages to be... 
+# I prefer messages to be...
 
 - Direct and to the point while still having a friendly tone
 
@@ -44,9 +44,9 @@ User Manual for Jianna Lucero
 
 - I much prefer asynchronous communication but am open to synchronous communication if there is a need for an immediate response
 
-# The best way to reach me is... 
+# The best way to reach me is...
 
-- Through my email. I can reply immedietely here during my work hours, but I might not reply as soon as possible during my off hours or on the weekends. 
+- Through my email. I can reply immedietely here during my work hours, but I might not reply as soon as possible during my off hours or on the weekends.
 
 - Through Discord. I mostly check my Discord during the end of my work hours so feel free to message me here if it's not as urgent.
 
@@ -58,12 +58,11 @@ User Manual for Jianna Lucero
 
 # I work best in a team when...
 
-- There's a clear goal/task established as a team and for each member 
+- There's a clear goal/task established as a team and for each member
 
 - Other people are able to do their work on time
 
 - There's proper communication done with a mix of casual and professionalism
-
 
 # My biggest pet peeve in teamwork is...
 
@@ -95,18 +94,17 @@ User Manual for Jianna Lucero
 
 - Give me set deadlines for my assigned task
 
-- Give me clear instructions on what to do for my tasks and what is expected from me 
+- Give me clear instructions on what to do for my tasks and what is expected from me
 
 ## FEEDBACK & GROWTH
 
-# I like feedback to be... 
+# I like feedback to be...
 
 - Direct but gentle
 
-- I much prefer receiving feedback in a private setting 
+- I much prefer receiving feedback in a private setting
 
 - Provide specific ways on how I can improve
-
 
 # When I make a mistake, the best way to let me know is...
 
@@ -128,6 +126,6 @@ User Manual for Jianna Lucero
 
 - During my junior high days, I used to be a part of a marching band.
 
-# My work superpower is... 
+# My work superpower is...
 
 - Scheduling and organizing what to do in a week

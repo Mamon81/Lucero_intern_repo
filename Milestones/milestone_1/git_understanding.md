@@ -1,10 +1,10 @@
 Jianna Monique M. Lucero
 
-Merge Conflicts & Conflict Resolution 
+Merge Conflicts & Conflict Resolution
 
 1. What caused the conflict?
 
-The conflict was caused when I attempted to merge my conflict-branch branch into main wherein the contents of the git_understanding.md file for both branches were different. For the conflict-branch branch, it had listed down questions talking about my experience with merge conflicts. Meanwhile, the main branch didn't have any questions and placed down only the numbers instead with no questions yet. When I tried to merge the conflict-branch into my main branch, a conflict occurred. 
+The conflict was caused when I attempted to merge my conflict-branch branch into main wherein the contents of the git_understanding.md file for both branches were different. For the conflict-branch branch, it had listed down questions talking about my experience with merge conflicts. Meanwhile, the main branch didn't have any questions and placed down only the numbers instead with no questions yet. When I tried to merge the conflict-branch into my main branch, a conflict occurred.
 
 2. How did you resolve it?
 

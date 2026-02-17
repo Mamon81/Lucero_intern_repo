@@ -4,7 +4,7 @@ Using Focus Bear
 
 1. Inability to edit Focus Logs
 
-During the first few focus sessions, I make some mistakes occasionally, such as labeling an intention or achievement incorrectly or forgetting to set the timer correctly, and I would like to restart the session. However, after checking the Focus Log section to edit the details of my section or delete test sessions or sessions with the wrong timer, I realized that I am unable to edit them. 
+During the first few focus sessions, I make some mistakes occasionally, such as labeling an intention or achievement incorrectly or forgetting to set the timer correctly, and I would like to restart the session. However, after checking the Focus Log section to edit the details of my section or delete test sessions or sessions with the wrong timer, I realized that I am unable to edit them.
 
 If possible, there could be a button after clicking the more that says “Edit” which can allow me to either delete the session or edit its details such as intentions and achievements.
 
@@ -17,7 +17,6 @@ I was confused with the term marketplace when viewing more habit packs. I assume
 If the packs in the marketplace are part of the free plan, maybe rename the term ‘Marketplace’ to either ‘Library’ or ‘Gallery’. If the packs are part of the pro plan, it should either be mentioned in the pricing plan or have an indicator on the marketplace that the habit packs are part of the pro plan.
 
 ![Screenshot of Marketplace Naming Confusion](../assets/2.png)
-
 
 3. Lack of a “Pause” Option During Focus Session
 

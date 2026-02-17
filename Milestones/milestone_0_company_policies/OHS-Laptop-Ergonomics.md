@@ -6,7 +6,7 @@ REFLECTION:
 
 1. What equipment changes can you make to improve your workspace setup? (e.g., using an external monitor, adjusting your chair, using a laptop stand)
 
-To improve my workspace setup, I should ensure that my external monitor is mounted at the correct height. This can be done by using a monitor arm so that the top third of the screen is at eye level. I should also utilize an external keyboard and mouse and ensure that it is correctly positioned so that my wrists are straight and my elbows are at a 90-degree angle. Additionally, I should ensure that my ergonomic chair is adjusted so that the lumbar support fits the curve of my lower especially during long coding sessions. 
+To improve my workspace setup, I should ensure that my external monitor is mounted at the correct height. This can be done by using a monitor arm so that the top third of the screen is at eye level. I should also utilize an external keyboard and mouse and ensure that it is correctly positioned so that my wrists are straight and my elbows are at a 90-degree angle. Additionally, I should ensure that my ergonomic chair is adjusted so that the lumbar support fits the curve of my lower especially during long coding sessions.
 
 2. What behavioural changes can you implement to improve posture and reduce strain? (e.g., sitting upright, taking regular breaks, adjusting screen height)
 

@@ -16,7 +16,7 @@ Check every start of the month for any software updates and review account permi
 
 Update software against security vulnerabilities.
 
-Enable two - factor authentication on all accounts. 
+Enable two - factor authentication on all accounts.
 
 Use a password manager to manage one's passwords and to be able to generate long, unique, and complex passwords for each account.
 
