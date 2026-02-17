@@ -296,3 +296,23 @@ Breaking down functions are beneficial because it transforms complex code into a
 2. How did refactoring improve the structure of the code?
 
 As mentioned before, refactoring can improve the structure of the code as it transforms long and complex code into a more flexible and modular approach without altering its intent. By breaking down complex code logic into smaller, single-purpose functions, the codebase not only becomes more significantly readable but also easier to navigate for developers. Furthermore, practicing good naming conventions on variables, constants and functions ensures that other developers clearly understand their intent/purpose. In conclusion, thanks to refactoring, it can transform your entire codebase into a cleaner foundation where it is less likely to break when new changes and features are added while ensuring it is easy for other developers to understand.
+
+# Avoiding Code Duplication
+
+## Research "Don't Repeat Yourself" (DRY) principle
+
+The DRY principle aims to ensure that every piece of logic or function in a codebase only represents a single, unique intent/purpose within a system. Aside from promoting the action of copy-pasting code, it also aims to eliminate the duplication of code logic, meaning that a specific process should only be defined in one area in your codebase. By ensuring that a specific code logic is centered under one function only, the DRY principle promotes the minimization of errors during updates, ensuring that the entire codebase remains readable and easily maintainable.
+
+## Sample Code of Unnecessary Repetition vs Refactored Version
+
+The sample code can be found in test_repo.js.
+
+## Reflections on Avoiding Code Duplication
+
+1. What were the issues with duplicated code?
+
+When there is duplicated code present in your project, it makes it harder for you and the rest of your team to manage and maintain. When the same logic is repeated and duplicated in different places in my codebase, it forces me and the rest of my team to manually find and update every single place where that logic is used if there is change to it. By having duplicated code present in the system, there is an increased chance of bugs and inconsistent behavior occurring since there is a chance I might forget changing a certain spot in my code while updating the duplicated code logic. Aside from that, it also makes it difficult to comprehend the codebase due to its redundant information, hindering its readability and modularity. Ultimately, having duplicated code causes a lot of issues that negatively impacts the project's development especially when it comes to maintaining the project or working in a team.
+
+2. How did refactoring improve maintainability?
+
+By applying refactoring in my code, it greatly improves maintainability since it was able to transform my messy code with repetitive information into a more cleaner and structured format. By eliminating duplicated logic, it breaks down long, repetitive lines of code into smaller, defined components, ensuring that changes are only made in one place and not in different places in my code base. Refactoring also reduces the risk of introducing errors or bugs since a specific code logic is now located in one area of my code base instead of multiple places, making it easier and more streamlined to apply any updates/changes. In conclusion, refactoring greatly improves a code's maintainability since it allows the project to experience a faster development, allowing new features and changes to be easily added onto the project without hindering the entire system itself.
