@@ -180,3 +180,119 @@ When running the linter, the linter was unable to detect any issues since my pro
 3. Did formatting the code make it easier to read?
 
 After using Prettier to format my markdown files, it made it significantly easier for me to read and navigate through the documentation. Thanks to Prettier, it was not only able to apply a consistent appearance throughout the different markdown files but also maintained a professional appearance that is up to company standards. By properly formatting the code and apply a uniform style throughout my markdown files, it was able to eliminate any visual distractions or inconsistencies with the formatting such as inconsistent line breaks and irregular spacing. This allowed me to be able to focus on writing the actual content for each markdown file instead of focusing on formatting. Furthermore, it also made it easier for me to scan through the different markdown files, locating specific information quickly now that the markdown files are more organized and its information is easily accessible.
+
+# Writing Small, Focused Functions
+
+## Best Practices 
+
+- Single Responsibility Principle
+
+A function should perform exactly only one task and be able to do it well. A functions that focuses on a singular task makes it easier to name, test and reuse across the entire codebase. If you can describe what your function does with "and", then it's doing too many things at once and should be broken down into smaller sub-functions.
+
+- Follow a Consistent Naming Convention
+
+Function names should be descriptive and immediately provide context as to what the function does. Furthermore, being consistent with casing and abbreviations throughout the codebase ensures that any developer can easily navigate the codebase without having to spend time interpreting the code.
+
+- Avoid using Magic Numbers and Strings
+
+Magic values are hard coded values that cannot immediately be identified or defined. Instead, they should be replaced with named constants to easily identify them. Furthermore, this also eliminates confusion for developer who are unfamiliar with the specific meaning of the values, making the code much easier to navigate. 
+
+- Follow the Don't Repeat Yourself (DRY) Principle
+
+Avoid copy-pasting code as it's harder to maintain and update, and can lead to inconsistencies and bugs. Instead, extract shared code and resuse it by creating functions or modules that can be reused across the codebase. This ensures that a single update to that reused code can automatically be applied to every part of the app/system that uses it.
+
+- Minimize or Eliminate Side Effects
+
+A function should be able to return an output based on its inputs wihtout changing any variables outside its own scope. Avoid functions that change global states/variables or modify external objects as it can create "hidden" behavior that is difficult to track. Ensure that functions are independent to ensure that the application is stable and easier during debugging.
+
+- Use Fewer Parameters
+
+Try to limit the number of inputs a function needs to reduce cognitive load. The fewer inputs a function has, the easier it is to call and test it.
+
+- Write Automated Unit Tests
+
+Writing automated unit tests ensure that the code can remain robust as you continue to new features. By writing tests for each function, you create a safety net that can easily catch regressions or errors immediately. 
+
+## Example of a Long, Complex Function
+
+```javascript
+var day = 'monday';
+var weather = 'sunny';
+
+let determineDayAndWeather = function (d, w) {
+  let dFormatted = d.toLowerCase().trim();
+  let wFormatted = w.toLowerCase().trim();
+
+  if (dFormatted === 'monday' || dFormatted === 'tuesday' || dFormatted === 'wednesday' || dFormatted === 'thursday' || dFormatted === 'friday') {
+    if (wFormatted === 'sunny') {
+      console.log('It is a' + wFormatted 'weekday. The day is ' + dFormatted + '.');
+    } else {
+      if (wFormatted === 'cloudy') {
+        console.log('It is a' + wFormatted 'weekday. The day is ' + dFormatted + '.');
+      } else {
+        if (wFormatted === 'stormy') {
+          console.log('It is a' + wFormatted 'weekday. The day is ' + dFormatted + '.');
+        } else {
+          console.log('It is a standard ' + dFormatted + ' with ' + wFormatted + ' weather.');
+        }
+      }
+    }
+  } else {
+    if (dFormatted === 'saturday' || dFormatted === 'sunday') {
+      if (wFormatted === 'sunny') {
+        console.log('It is a' + wFormatted 'weekend. The day is ' + dFormatted + '.');
+      } else if (wFormatted === 'stormy') {
+        console.log('Weekend storm alert on ' + dFormatted + '.');
+      } else {
+        console.log('It is ' + dFormatted + ' and the weather is ' + wFormatted + '.');
+      }
+    } else {
+      console.log('Error: The value ' + d + ' is not a valid day of the week.');
+    }
+  }
+  return 'Process finished for ' + dFormatted;
+};
+
+determineDayAndWeather(day, weather);
+```
+
+This function is long and complex, because it violates the single responsibility principle. The function handles a lot of tasks at once like cleaning the inputs provided, determing what day it is, and checking the weather. Because of multiple things being done all at once, it results in the logic of the function containing deep and confusing layers of if-else statements. This results in the code being difficult to read and understand with an increased chance of bugs occurring due to its messy and repetitive code.
+
+## Refactored Code
+
+```javascript
+const WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+const WEEKEND_DAYS = ['saturday', 'sunday'];
+
+const isWeekday = (day) => WEEKDAYS.includes(day);
+
+const isWeekend = (day) => WEEKEND_DAYS.includes(day);
+
+const determineDayAndWeather = (day, weather) => {
+  const formattedDay = day.toLowerCase().trim();
+  
+  if (!isWeekday(formattedDay) && !isWeekend(formattedDay)) {
+    throw new Error(`Invalid day: ${day}`);
+  }
+
+  const type = isWeekday(formattedDay) ? 'weekday' : 'weekend';
+  
+  return `It is a ${weather} ${type}. The day is ${formattedDay}.`;
+};
+
+// Example
+console.log(determineDayAndWeather('Monday', 'sunny'));
+console.log(determineDayAndWeather('Saturday', 'stormy'));
+```
+
+The refactored code is much more simpler and cleaner compared to the messy example provided. It now breaks down the different tasks of determining the day and weather into smaller and simpler steps. There is now a separate function for identifying the type of day, making the main function no longer containing nested if-else statements. Furthermore, the hard coded values are now arranged in an array to avoid any confusion and for proper identification of the constants. Lastly, it ensures that errors are handled immediately at the top of the function, making it faster to catch errors as soon as possible. 
+
+## Reflection on Writing Small, Focused Functions
+
+1. Why is breaking down functions beneficial?
+
+Breaking down functions are beneficial because it transforms complex code into a more modular structure, making the code easier to understand and comprehend for developers. By ensuring that the function is specially designed for only one task as well as clearly defining the intent of the function, it allows team to easily understand the purpose of the function without getting easily lost in it. This practice not only improves the readability of the code but also improves the debugging and testing process as it can isolate any potential issues or bugs easily.
+
+2. How did refactoring improve the structure of the code?
+
+As mentioned before, refactoring can improve the structure of the code as it transforms long and complex code into a more flexible and modular approach without altering its intent. By breaking down complex code logic into smaller, single-purpose functions, the codebase not only becomes more significantly readable but also easier to navigate for developers. Furthermore, practicing good naming conventions on variables, constants and functions ensures that other developers clearly understand their intent/purpose. In conclusion, thanks to refactoring, it can transform your entire codebase into a cleaner foundation where it is less likely to break when new changes and features are added while ensuring it is easy for other developers to understand.
