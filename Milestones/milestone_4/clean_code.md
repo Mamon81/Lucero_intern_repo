@@ -183,7 +183,7 @@ After using Prettier to format my markdown files, it made it significantly easie
 
 # Writing Small, Focused Functions
 
-## Best Practices 
+## Best Practices
 
 - Single Responsibility Principle
 
@@ -195,7 +195,7 @@ Function names should be descriptive and immediately provide context as to what 
 
 - Avoid using Magic Numbers and Strings
 
-Magic values are hard coded values that cannot immediately be identified or defined. Instead, they should be replaced with named constants to easily identify them. Furthermore, this also eliminates confusion for developer who are unfamiliar with the specific meaning of the values, making the code much easier to navigate. 
+Magic values are hard coded values that cannot immediately be identified or defined. Instead, they should be replaced with named constants to easily identify them. Furthermore, this also eliminates confusion for developer who are unfamiliar with the specific meaning of the values, making the code much easier to navigate.
 
 - Follow the Don't Repeat Yourself (DRY) Principle
 
@@ -211,7 +211,7 @@ Try to limit the number of inputs a function needs to reduce cognitive load. The
 
 - Write Automated Unit Tests
 
-Writing automated unit tests ensure that the code can remain robust as you continue to new features. By writing tests for each function, you create a safety net that can easily catch regressions or errors immediately. 
+Writing automated unit tests ensure that the code can remain robust as you continue to new features. By writing tests for each function, you create a safety net that can easily catch regressions or errors immediately.
 
 ## Example of a Long, Complex Function
 
@@ -264,19 +264,19 @@ This function is long and complex, because it violates the single responsibility
 const WEEKDAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 const WEEKEND_DAYS = ['saturday', 'sunday'];
 
-const isWeekday = (day) => WEEKDAYS.includes(day);
+const isWeekday = day => WEEKDAYS.includes(day);
 
-const isWeekend = (day) => WEEKEND_DAYS.includes(day);
+const isWeekend = day => WEEKEND_DAYS.includes(day);
 
 const determineDayAndWeather = (day, weather) => {
   const formattedDay = day.toLowerCase().trim();
-  
+
   if (!isWeekday(formattedDay) && !isWeekend(formattedDay)) {
     throw new Error(`Invalid day: ${day}`);
   }
 
   const type = isWeekday(formattedDay) ? 'weekday' : 'weekend';
-  
+
   return `It is a ${weather} ${type}. The day is ${formattedDay}.`;
 };
 
@@ -285,7 +285,7 @@ console.log(determineDayAndWeather('Monday', 'sunny'));
 console.log(determineDayAndWeather('Saturday', 'stormy'));
 ```
 
-The refactored code is much more simpler and cleaner compared to the messy example provided. It now breaks down the different tasks of determining the day and weather into smaller and simpler steps. There is now a separate function for identifying the type of day, making the main function no longer containing nested if-else statements. Furthermore, the hard coded values are now arranged in an array to avoid any confusion and for proper identification of the constants. Lastly, it ensures that errors are handled immediately at the top of the function, making it faster to catch errors as soon as possible. 
+The refactored code is much more simpler and cleaner compared to the messy example provided. It now breaks down the different tasks of determining the day and weather into smaller and simpler steps. There is now a separate function for identifying the type of day, making the main function no longer containing nested if-else statements. Furthermore, the hard coded values are now arranged in an array to avoid any confusion and for proper identification of the constants. Lastly, it ensures that errors are handled immediately at the top of the function, making it faster to catch errors as soon as possible.
 
 ## Reflection on Writing Small, Focused Functions
 
