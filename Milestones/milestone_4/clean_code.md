@@ -316,3 +316,112 @@ When there is duplicated code present in your project, it makes it harder for yo
 2. How did refactoring improve maintainability?
 
 By applying refactoring in my code, it greatly improves maintainability since it was able to transform my messy code with repetitive information into a more cleaner and structured format. By eliminating duplicated logic, it breaks down long, repetitive lines of code into smaller, defined components, ensuring that changes are only made in one place and not in different places in my code base. Refactoring also reduces the risk of introducing errors or bugs since a specific code logic is now located in one area of my code base instead of multiple places, making it easier and more streamlined to apply any updates/changes. In conclusion, refactoring greatly improves a code's maintainability since it allows the project to experience a faster development, allowing new features and changes to be easily added onto the project without hindering the entire system itself.
+
+# Refactoring Code for Simplicity
+
+## Common Refactoring Techniques
+
+- Red-Green Refactoring
+
+Is the most popular and widely used code refactoring technique during Agile development. It consists of three steps: writing a failing test (Red), writing the simplest code to pass the test (Green), and then cleaning up the code logic (Refactor). By separating the addition to new features and functions to the system and refactoring the code that does this feature/function, this technique ensures that developers can safely change the code of their system without hindering the functionality of the system.
+
+- Refactoring By Abstraction
+
+Is mainly used when there is a large section of code that needs to be refactored. This technique is mainly used to reduce code duplication through class inheritance, hierarchy and interfaces.
+
+- Composing Method
+
+Is designed to transform long, complex methods that are difficult for developers to understand or change. This method involves breaking down code into smaller methods through either creating separate methods, or removing unnecessary methods by replacing calls with the actual content.
+
+- Simplifying Methods
+
+The two techniques under this approach are to simplify complicated conditional expressions and making method calls easier to understand. Simplifying conditional expressions can consist of removing duplicated code and replacing nested conditional with guard clauses to name a few. While making method calls can consists of adding, removing or introducing new parameters and replacing the parameter with the explicit method to name a few
+
+- Moving Features Between Objects
+
+Consists of creating new classes that ensures that a functionality/feature of the system is moved safely between old and new classes. This techniques is used when a class has too many functionalities or when a class has become unnecessary.
+
+- Preparatory Refactoring
+
+This technique is applied when developers notice issues with the code while preparing to implement a new feature or change onto the system. By fixing code issues before the implementation of a new feature/fix, this ensures that the future development of a system is smoother, more efficient and less prone to errors and bugs.
+
+- User Interface Refactoring
+
+This involves making simple changes to the code that tackles user interface to improve consistency and usability of the user interface. Some examples include having consistent button sizes and aligning entry fields to ensure that the front-end logic of the system is simple and clean as the back-end logic.
+
+## Example of Overly Complicated Code
+
+```javascript
+// Example of function for Logging In
+const username = 'user1';
+const password = '12345';
+
+function loginUser(username, password) {
+  if (username !== '' && username !== null) {
+    if (password !== '' && password !== null) {
+      if (username === 'user1') {
+        if (password === '12345') {
+          console.log(`Login Successful! Welcome back ${username}.`);
+          return 'success';
+        } else {
+          console.log('Incorrect Password');
+          return 'error_password';
+        }
+      } else {
+        console.log('User not found');
+        return 'error_user';
+      }
+    } else {
+      console.log('Password field is empty');
+      return 'error_empty_fields';
+    }
+  } else {
+    console.log('Username field is empty');
+    return 'error_empty_fields';
+  }
+}
+loginUser('user1', '12345');
+```
+
+## Refactored Code
+
+```javascript
+const username = 'user1';
+const password = '12345';
+
+const loginUser = (username, password) => {
+  // 1. Check for empty fields immediately
+  if (!username || !password) {
+    console.log('Error: Username or Password field is empty');
+    return 'error_empty_fields';
+  }
+
+  // 2. Validate Username
+  if (username !== 'user1') {
+    console.log('Error: User not found');
+    return 'error_user';
+  }
+
+  // 3. Verify Password
+  if (password !== '12345') {
+    console.log('Error: Incorrect Password');
+    return 'error_password';
+  }
+
+  // 4. Successful Login
+  console.log(`Login Successful! Welcome back ${username}.`);
+  return 'success';
+};
+
+loginUser(username, password);
+```
+
+## Reflections on Refactoring Code
+
+1. What made the original code complex?
+
+The original code which was meant to simply verify the login details of a user was complex because it used nested if-else statements wherein one if statement is buried under another if statement. By applying nested if-else statements, it caused the appearance of the code to look like a staircase, making it difficult for me and other developers to read and understand its logic. Furthermore, since the code looks complicated and difficult to follow, it also makes it harder for me to keep track of the different conditions of logging in if ever errors or bugs pop up.
+
+2. How did refactoring improve it?
+
+By applying refactoring to the original code, it removed the staircase look of the code and turned it into a more cleaner and linear sequence of logic. Instead of applying deep nesting to check for every condition, it adds guard clauses that involve handling errors immediately at the start of the function. This ensures that the code performs much faster and that the process of simply logging in can easily be performed without the need for going through different if-else statements.
