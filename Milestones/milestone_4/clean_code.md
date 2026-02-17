@@ -164,3 +164,19 @@ Using poorly named variables forces developers to constantly remember the hidden
 3. How did refactoring improves code readability?
 
 Refactoring improves code readability as it restructures the code to a cleaner and organized without altering its purpose for the user. By applying techniques such as renaming variables and functions for clarity and breaking down large methods into smaller single-purpose functions, it results in the code becoming more easier for me and my team to navigate and understand. Furthermore, this also reduces the need for developers to be able to decipher my code and more time contributing to the project's development.
+
+# Code Formatting & Style Guides
+
+## Reflection on Code Formatting & Style Guides
+
+1. Why is code formatting important?
+
+Code formatting is important because it ensures that the code is readable and maintainable for a long period of time. By having readable code, it allows for me and my other team members to be able to quickly understand the code thanks to code formatting. By enforcing a consistent style throughout the entire entire codebase, developers won't need to spend extra time and effort interpreting the different coding styles by their other team members. Furthermore, having a uniform coding style improves collaboration during code reviews, facilitates faster onboarding for new developers into the team, and significantly reduces the likelihood of introducing bugs during refactoring.
+
+2. What issues did the linter detect?
+
+When running the linter, the linter was unable to detect any issues since my project repository mostly contained markdown documentation files instead of Javascript code. Instead I was able to use Prettier as a code formatter to check if there are any formatting inconsistencies across the different markdown files in my Milestones directory. It was able to detect these formatting inconsistencies and instantly applied changes to them. This included standardizing line length, spacing, text wrapping and overall document structure. By applying these changes, the markdown files had greatly improved its readability as well as applied the professional standards when it comes to documenting markdown files.
+
+3. Did formatting the code make it easier to read?
+
+After using Prettier to format my markdown files, it made it significantly easier for me to read and navigate through the documentation. Thanks to Prettier, it was not only able to apply a consistent appearance throughout the different markdown files but also maintained a professional appearance that is up to company standards. By properly formatting the code and apply a uniform style throughout my markdown files, it was able to eliminate any visual distractions or inconsistencies with the formatting such as inconsistent line breaks and irregular spacing. This allowed me to be able to focus on writing the actual content for each markdown file instead of focusing on formatting. Furthermore, it also made it easier for me to scan through the different markdown files, locating specific information quickly now that the markdown files are more organized and its information is easily accessible.
