@@ -12,7 +12,7 @@ module.exports = [
     },
     rules: {
       // Prettier integration
-      'prettier/prettier': 'error',
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
 
       // Additional ESLint rules
       'no-unused-vars': 'warn',
