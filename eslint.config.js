@@ -1,0 +1,56 @@
+const js = require('@eslint/js');
+const prettier = require('eslint-plugin-prettier');
+const prettierConfig = require('eslint-config-prettier');
+
+module.exports = [
+  js.configs.recommended,
+  prettierConfig,
+  {
+    files: ['**/*.{js,jsx,mjs,cjs}'],
+    plugins: {
+      prettier,
+    },
+    rules: {
+      // Prettier integration
+      'prettier/prettier': 'error',
+
+      // Additional ESLint rules
+      'no-unused-vars': 'warn',
+      'no-console': 'warn',
+      'prefer-const': 'error',
+      'no-var': 'error',
+    },
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        // Browser globals
+        window: 'readonly',
+        document: 'readonly',
+        console: 'readonly',
+        // Node.js globals
+        process: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'readonly',
+        global: 'readonly',
+      },
+    },
+  },
+  {
+    ignores: [
+      'node_modules/',
+      'dist/',
+      'build/',
+      'coverage/',
+      '*.min.js',
+      '.env*',
+      '*.md',
+      '*.json',
+      'package-lock.json',
+      'yarn.lock',
+    ],
+  },
+];

@@ -7,6 +7,7 @@ This is my personal learning repository for the Focus Bear Intern Onboarding Pro
 ## Purpose
 
 This repository serves as a workspace where I:
+
 - Complete structured learning tasks organized by milestones
 - Demonstrate understanding of GitHub workflows and best practices
 - Build foundational skills in Node.js, automation, and APIs
@@ -17,4 +18,4 @@ This repository serves as a workspace where I:
 All tasks and issues are organized by milestone, progressing from foundational concepts to more complex projects.
 
 **Status**: In Progress  
-**Started**: February 2026  
+**Started**: February 2026
