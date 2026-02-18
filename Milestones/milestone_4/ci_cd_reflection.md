@@ -1,6 +1,6 @@
 Jianna Monique M. Lucero
 
-# Static Analysic Checks in CI/CD
+# Static Analysis Checks in CI/CD
 
 ## What is CI/CD and Its Importance in Software Development
 

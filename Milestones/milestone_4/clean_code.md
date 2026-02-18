@@ -199,11 +199,11 @@ Magic values are hard coded values that cannot immediately be identified or defi
 
 - Follow the Don't Repeat Yourself (DRY) Principle
 
-Avoid copy-pasting code as it's harder to maintain and update, and can lead to inconsistencies and bugs. Instead, extract shared code and resuse it by creating functions or modules that can be reused across the codebase. This ensures that a single update to that reused code can automatically be applied to every part of the app/system that uses it.
+Avoid copy-pasting code as it's harder to maintain and update, and can lead to inconsistencies and bugs. Instead, extract shared code and reuse it by creating functions or modules that can be reused across the codebase. This ensures that a single update to that reused code can automatically be applied to every part of the app/system that uses it.
 
 - Minimize or Eliminate Side Effects
 
-A function should be able to return an output based on its inputs wihtout changing any variables outside its own scope. Avoid functions that change global states/variables or modify external objects as it can create "hidden" behavior that is difficult to track. Ensure that functions are independent to ensure that the application is stable and easier during debugging.
+A function should be able to return an output based on its inputs without changing any variables outside its own scope. Avoid functions that change global states/variables or modify external objects as it can create "hidden" behavior that is difficult to track. Ensure that functions are independent to ensure that the application is stable and easier during debugging.
 
 - Use Fewer Parameters
 
@@ -256,7 +256,7 @@ let determineDayAndWeather = function (d, w) {
 determineDayAndWeather(day, weather);
 ```
 
-This function is long and complex, because it violates the single responsibility principle. The function handles a lot of tasks at once like cleaning the inputs provided, determing what day it is, and checking the weather. Because of multiple things being done all at once, it results in the logic of the function containing deep and confusing layers of if-else statements. This results in the code being difficult to read and understand with an increased chance of bugs occurring due to its messy and repetitive code.
+This function is long and complex, because it violates the single responsibility principle. The function handles a lot of tasks at once like cleaning the inputs provided, determining what day it is, and checking the weather. Because of multiple things being done all at once, it results in the logic of the function containing deep and confusing layers of if-else statements. This results in the code being difficult to read and understand with an increased chance of bugs occurring due to its messy and repetitive code.
 
 ## Refactored Code
 
