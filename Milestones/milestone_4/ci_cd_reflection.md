@@ -12,7 +12,7 @@ CI/CD is a DevOps practice that focuses on the automation of the release process
 
 The purpose of CI/CD is to be able to automate the software development lifecycle, making it more efficient. By automating the building, testing and deploying stages in software development, it not only allows developers to be able to deliver high-quality code quicker and more reliably but also significantly reduces the risk of manual errors.
 
-Furthermore CI/CD also helps in faciliating the detection of early bugs/errors thanks to its automated validation and testing. This ensures that smaller updates are tested and verified immediately before integrating them and merging it into the main repository. In conclusion, CI/CD transforms the software development process, making software releases more frequent and less prone to bugs/errors occuring.
+Furthermore CI/CD also helps in facilitating the detection of early bugs/errors thanks to its automated validation and testing. This ensures that smaller updates are tested and verified immediately before integrating them and merging it into the main repository. In conclusion, CI/CD transforms the software development process, making software releases more frequent and less prone to bugs/errors occurring.
 
 2. How does automating style checks improve project quality?
 
@@ -28,7 +28,7 @@ Due to CI/CD enforcing checks and doing extensive security scans and comprehensi
 
 - Flaky Tests and Trust
 
-Unrealiable tests that fail irregularly with the actual code being changed can negatively affect developer's trust in the automated pipeline. If failures are frequently ignored or seen as false positives, this can create a major security risk as potential bugs/errors can likely occur without the security check catching it.
+Unreliable tests that fail irregularly with the actual code being changed can negatively affect developer's trust in the automated pipeline. If failures are frequently ignored or seen as false positives, this can create a major security risk as potential bugs/errors can likely occur without the security check catching it.
 
 - Environmental Inconsistencies
 
@@ -36,7 +36,7 @@ If discrepancies are present in development, testing or production environments,
 
 - Security and Supply Chain Risks
 
-CI/CD has a chance in becoming a target for attackers or hackers who may attempt to manipulate its configurations to inject malicious code into your project. Additonally, if your system has to manage sensitive data and has to go through different automated jobs can result in a security breach if not properly secured and managed.
+CI/CD has a chance in becoming a target for attackers or hackers who may attempt to manipulate its configurations to inject malicious code into your project. Additionally, if your system has to manage sensitive data and has to go through different automated jobs can result in a security breach if not properly secured and managed.
 
 - Maintaining Legacy and Specialized Systems
 
