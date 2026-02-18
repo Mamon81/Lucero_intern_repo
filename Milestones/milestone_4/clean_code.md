@@ -425,3 +425,119 @@ The original code which was meant to simply verify the login details of a user w
 2. How did refactoring improve it?
 
 By applying refactoring to the original code, it removed the staircase look of the code and turned it into a more cleaner and linear sequence of logic. Instead of applying deep nesting to check for every condition, it adds guard clauses that involve handling errors immediately at the start of the function. This ensures that the code performs much faster and that the process of simply logging in can easily be performed without the need for going through different if-else statements.
+
+# Commenting & Documentation
+
+## Best Practices on Writing Comments and Documentation
+
+- Explain the "Why", Not just the "What"
+
+Instead of talking about what the block of code does, also focus on the intent and reasoning behind the block of code. This provides additional context for both yourself and your other team members understand the implementation of the code logic.
+
+- Keep Comments Simple and Focused
+
+Comments should be brief and should use plain language to ensure that they are easily understandable. Avoid long descriptions or using overly complicated terms that can distract the developers from the actual code
+
+- Clarify Complex Code
+
+Use comments to break down intricate logic that might not be easily understandable at first glance. Providing a brief but clear explanation can prevent other developers from breaking it during future updates.
+
+- Update Comments as the Code Evolves
+
+Documentation should also be constantly updated as a code logic in a project is modified. Having outdated comments present in the code can lead to confusion since it describes functionality that no longer exists in the current project.
+
+- Maintain a Consistent Commenting Style
+
+Establish a uniform for all your comments in your project. This consists of consistent spacing, line length, and terminology being applied across the entire project.
+
+- Avoid Redundant Comments
+
+Only add comments if a certain section in your code require additional clarity or explanation. Redundant comments such as describing self-explanatory lines of code doesn't add any benefits to the codebase and instead adds more clutter to it.
+
+- Document Assumptions and Preconditions in Your Code
+
+Clearly state any requirements that must be met before a functions executes, as well as the conditions that is expected to be true.
+
+- Comment on Classes, Methods, and Functions
+
+Provide a brief description on the major components of your system explaining their roles and contributions to the overall system. This helps new developers quickly understand the structure of the project and makes it easier to reuse components without having to go through the entire codebase.
+
+## Example of Poorly Commented Code
+
+```javascript
+// This is a list of days in a week starting from Monday to Sunday
+const VALID_DAYS = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+
+// This is an array that contains different types of weather like sunny and rainy
+const VALID_WEATHER = ['sunny', 'windy', 'cloudy', 'rainy', 'stormy'];
+
+// This function takes day and weather and then it logs them to the console
+const logDayAndWeather = (day, weather) => {
+  // Check if the day is in the valid days list or if weather is in valid weather list
+  if (!VALID_DAYS.includes(day) || !VALID_WEATHER.includes(weather)) {
+    // Print an error message to the console saying it is invalid
+    console.error('Invalid day/weather provided');
+    // Return nothing to stop the function
+    return;
+  }
+
+  // Log a string that says Today is the day and the weather is the weather
+  console.log(`Today is ${day} and the weather is ${weather}.`);
+};
+
+// Call the function with Monday and sunny
+logDayAndWeather('Monday', 'sunny');
+// Call the function with Tuesday and cloudy
+logDayAndWeather('Tuesday', 'cloudy');
+```
+
+The code above is an example of poorly commented code since there is a lot of redundant comments being made. Most of the comments simply restate the code such as explaining the different arrays and what it contains. It doesn't add additional information and results in the code being cluttered and messy. It also increases the maintenance needed during the updating of the code since it requires updating every single comment that fails to provide any additional context.
+
+## Rewritten Comments
+
+```javascript
+// Validation arrays for inputted data
+const VALID_DAYS = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+
+const VALID_WEATHER = ['sunny', 'windy', 'cloudy', 'rainy', 'stormy'];
+
+const logDayAndWeather = (day, weather) => {
+  // Guard clause: reject invalid input early
+  if (!VALID_DAYS.includes(day) || !VALID_WEATHER.includes(weather)) {
+    console.error('Invalid day/weather provided');
+    return;
+  }
+
+  console.log(`Today is ${day} and the weather is ${weather}.`);
+};
+
+// Example usage with valid inputs
+logDayAndWeather('Monday', 'sunny');
+logDayAndWeather('Tuesday', 'cloudy');
+```
+
+## Reflection on Commenting and Documentation
+
+1. When should you add comments?
+
+Comments should be added for the main reason to explain why a block of code is added onto your codebase. Its main purpose is to be able to provide additional context/information that the code itself is unable to convey. This includes clarifying complex logic of a function, and explaining the reasoning behind non-obvious variables to name a few. Comments should be added to add additional context and not repeat what the code is already doing.
+
+2. When should you avoid comments and instead improve the code?
+
+I should avoid placing comments if the code I'm trying to explain is messy and cluttered. If I find myself commenting a large explanation for a long and confusing block of code, then it means that I should refactor the code itself to make it simpler and easy for me and other developers to understand. If a function is already in a simple, clean and modular format, I should add comments onto it if it needs a bit more context for others to understand. In addition, comments should also be avoided when justifying poorly named variables/constants. Instead of justifying them, they can simply be renamed to be more descriptive for me and other developers to understand.
