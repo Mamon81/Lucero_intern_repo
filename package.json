@@ -4,7 +4,7 @@
   "description": "This is my personal learning repository for the Focus Bear Intern Onboarding Program. It contains all the practical tasks and projects I'm completing as part of my onboarding journey.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "format": "prettier --write .",
@@ -18,6 +18,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "jest": "^30.2.0",
     "prettier": "^3.8.1"
   }
 }
