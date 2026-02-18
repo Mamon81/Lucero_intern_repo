@@ -661,6 +661,6 @@ The function that I used to make different unit tests is a simple function that 
 - Returns an error message for invalid weather
 - Returns an error message if both day and weather are invalid
 
-I chose Jest as my testing framework and when I ran it, it was able to run all 5 unit tests. After running all unit tests, it concluded that the function had no errors/issues as it was able to pass all 5 unit tests that I made. This meant that the function was able to function with its intended purposes without any bugs or issues present. 
+I chose Jest as my testing framework and when I ran it, it was able to run all 5 unit tests. After running all unit tests, it concluded that the function had no errors/issues as it was able to pass all 5 unit tests that I made. This meant that the function was able to function with its intended purposes without any bugs or issues present.
 
 I also altered the function to see if it can detect an error in my code wherein I changed the logic of validating the inputted data. I changed the OR operator to AND operator meaning that it only returns an error message if both the day and weather are invalid. After running Jest, the tests that involve return an error message for an invalid day only, an invalid weather only and for lowercase values failed. This means that it was able to catch the errors immediately, making it easier for me to fix the code.
