@@ -199,11 +199,11 @@ Magic values are hard coded values that cannot immediately be identified or defi
 
 - Follow the Don't Repeat Yourself (DRY) Principle
 
-Avoid copy-pasting code as it's harder to maintain and update, and can lead to inconsistencies and bugs. Instead, extract shared code and resuse it by creating functions or modules that can be reused across the codebase. This ensures that a single update to that reused code can automatically be applied to every part of the app/system that uses it.
+Avoid copy-pasting code as it's harder to maintain and update, and can lead to inconsistencies and bugs. Instead, extract shared code and reuse it by creating functions or modules that can be reused across the codebase. This ensures that a single update to that reused code can automatically be applied to every part of the app/system that uses it.
 
 - Minimize or Eliminate Side Effects
 
-A function should be able to return an output based on its inputs wihtout changing any variables outside its own scope. Avoid functions that change global states/variables or modify external objects as it can create "hidden" behavior that is difficult to track. Ensure that functions are independent to ensure that the application is stable and easier during debugging.
+A function should be able to return an output based on its inputs without changing any variables outside its own scope. Avoid functions that change global states/variables or modify external objects as it can create "hidden" behavior that is difficult to track. Ensure that functions are independent to ensure that the application is stable and easier during debugging.
 
 - Use Fewer Parameters
 
@@ -256,7 +256,7 @@ let determineDayAndWeather = function (d, w) {
 determineDayAndWeather(day, weather);
 ```
 
-This function is long and complex, because it violates the single responsibility principle. The function handles a lot of tasks at once like cleaning the inputs provided, determing what day it is, and checking the weather. Because of multiple things being done all at once, it results in the logic of the function containing deep and confusing layers of if-else statements. This results in the code being difficult to read and understand with an increased chance of bugs occurring due to its messy and repetitive code.
+This function is long and complex, because it violates the single responsibility principle. The function handles a lot of tasks at once like cleaning the inputs provided, determining what day it is, and checking the weather. Because of multiple things being done all at once, it results in the logic of the function containing deep and confusing layers of if-else statements. This results in the code being difficult to read and understand with an increased chance of bugs occurring due to its messy and repetitive code.
 
 ## Refactored Code
 
@@ -661,6 +661,6 @@ The function that I used to make different unit tests is a simple function that 
 - Returns an error message for invalid weather
 - Returns an error message if both day and weather are invalid
 
-I chose Jest as my testing framework and when I ran it, it was able to run all 5 unit tests. After running all unit tests, it concluded that the function had no errors/issues as it was able to pass all 5 unit tests that I made. This meant that the function was able to function with its intended purposes without any bugs or issues present. 
+I chose Jest as my testing framework and when I ran it, it was able to run all 5 unit tests. After running all unit tests, it concluded that the function had no errors/issues as it was able to pass all 5 unit tests that I made. This meant that the function was able to function with its intended purposes without any bugs or issues present.
 
 I also altered the function to see if it can detect an error in my code wherein I changed the logic of validating the inputted data. I changed the OR operator to AND operator meaning that it only returns an error message if both the day and weather are invalid. After running Jest, the tests that involve return an error message for an invalid day only, an invalid weather only and for lowercase values failed. This means that it was able to catch the errors immediately, making it easier for me to fix the code.
