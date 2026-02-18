@@ -541,3 +541,96 @@ Comments should be added for the main reason to explain why a block of code is a
 2. When should you avoid comments and instead improve the code?
 
 I should avoid placing comments if the code I'm trying to explain is messy and cluttered. If I find myself commenting a large explanation for a long and confusing block of code, then it means that I should refactor the code itself to make it simpler and easy for me and other developers to understand. If a function is already in a simple, clean and modular format, I should add comments onto it if it needs a bit more context for others to understand. In addition, comments should also be avoided when justifying poorly named variables/constants. Instead of justifying them, they can simply be renamed to be more descriptive for me and other developers to understand.
+
+# Handling Errors & Edge Cases
+
+## Strategies for Handling Errors and Edge Cases in Code
+
+- Defensive Programming
+
+A practice that involves assuming that invalid inputs or unexpected conditions will happen and implementing safeguards. Safeguards can involve implementing guard clauses at the start of a function to validate inputted data and exit early if an error occurs. By assuming these inputs or conditions, developers can implement safeguards before they cause problems to ensure that the system remains robust and functional.
+
+- Input Validation and Sanitization
+
+Input validation involves checking if all inputted data matches the expected criteria required by the system and rejects any invalid data. Sanitization involves cleaning data by removing dangerous characters. These methods prevent any corrupted or invalid data from moving deeper into the system where it makes it difficult to debug.
+
+- Document Assumptions
+
+Clearly document what your function does from the inputs and what's the expected output. This helps other developers avoid accidentally misusing the code in future updates of the system
+
+- Structured Error Handling
+
+Using try-catch blocks allows for better management for expected errors to ensure that the application doesn't crash. By using specific try-catch blocks that correspond to different error types, this separates the error-handling code from the main logic of a function, ensuring that the code is cleaner and more robust.
+
+- Implementing Finally Blocks
+
+Used primarily for executing cleanup tasks such as closing files, database connections or freeing resources. This block wil run regardless if an error has occurred or not to ensure that the system remains stable and leak-free.
+
+- Graceful Degradation
+
+A principle that ensures that a system maintains limited functionality for the user when a small, non-critical part of the system fails. This prevents a single minor error from ruining the entire user experience of a system.
+
+- Descriptive Logs and Messages
+
+When an error occurs, the user should be able to receive a simple, helpful message informing them on the error in the system. In addition, the developer should also be able to receive a detailed technical log of the error/bug that occurred. This allows them to be able to diagnose and fix the bug based on the technical data collected.
+
+## Example of Code Of Improperly Handling Errors
+
+```javascript
+const user = 'Jianna';
+const password = '12345';
+
+const loginUser = (name, pass) => {
+  // Doesn't check if user is valid
+  if (pass === '12345') {
+    console.log('Welcome!');
+  }
+};
+
+loginUser(user, password);
+```
+
+## Refactored Code
+
+```javascript
+const VALID_USER = 'Jianna';
+const VALID_PASSWORD = '12345';
+
+const loginUser = (name, pass) => {
+  try {
+    // Implementing guard clause to catch errors immediately
+    if (!name || !pass) {
+      throw new Error('Username and password are required.');
+    }
+
+    if (name !== VALID_USER) {
+      throw new Error('User not found.');
+    }
+
+    if (pass !== VALID_PASSWORD) {
+      throw new Error('Incorrect password.');
+    }
+
+    console.log(`Login Successful! Welcome back, ${name}.`);
+  } catch (error) {
+    console.error(`Login Error: ${error.message}`);
+  } finally {
+    console.log('Login Process Complete');
+  }
+};
+
+// Testing various scenarios
+loginUser('Jianna', '12345');
+loginUser('Jianna', ''); // Edge Case: Missing password
+loginUser('Monique', '12345'); // Edge Case: Unknown user
+```
+
+## Reflection on Handling Errors & Edge Cases
+
+1. What was the issue with the original code?
+
+The original code was unable to validate the inputs provided such as verifying the user and password which could lead to the system experiencing unusual behavior or system crashes. By not verifying if the user or password existed within the code before processing them as well as failing to provide proper error handling, this will result in the user receiving no feedback if ever the login fails.
+
+2. How does handling errors improve reliability?
+
+Properly handling errors can improve the reliability of a system by transforming it from being fragile and prone to errors/bugs to a resilient system that doesn't experience a complete shutdown. Having proper error handling implemented onto the code can prevent total crashes and minor glitches from completely stopping a system from running. Furthermore, proper error handling also protects data integrity by validating user inputs, ensuring that invalid/corrupted data doesn't impact the final output produced. Lastly, by providing detailed logs whenever an error/bug occurs can help developers easily identify the root causes of those errors and quickly implement permanent fixes.
