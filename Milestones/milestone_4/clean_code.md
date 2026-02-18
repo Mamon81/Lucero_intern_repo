@@ -634,3 +634,33 @@ The original code was unable to validate the inputs provided such as verifying t
 2. How does handling errors improve reliability?
 
 Properly handling errors can improve the reliability of a system by transforming it from being fragile and prone to errors/bugs to a resilient system that doesn't experience a complete shutdown. Having proper error handling implemented onto the code can prevent total crashes and minor glitches from completely stopping a system from running. Furthermore, proper error handling also protects data integrity by validating user inputs, ensuring that invalid/corrupted data doesn't impact the final output produced. Lastly, by providing detailed logs whenever an error/bug occurs can help developers easily identify the root causes of those errors and quickly implement permanent fixes.
+
+# Writing Unit Tests for Clean Code
+
+## Importance of Unit Testing in Software Development
+
+Unit testing can save time and money by finding and fixing software problems in the early stages of the software life cycle. Unit testing also builds a “safety net.” This means that when a developer needs to change the code or add more functionality to the software, they can be more confident that the testing will show that the program still does what it needs to do. Unit testing also builds a methodology of quality and modular code as well as establishes a form of documentation that shows how the code should work. Debugging is made easier by unit testing because it reveals where in the code the changes caused the test to fail. When unit testing is used with CI/CD tools (Continuous Integration and Continuous Delivery), it makes it easier to create a reliable code base and goes hand in hand with more frequent software releases.
+
+## Unit Tests Samples
+
+The sample code and its corresponding unit tests are found in weather.js and weather.test.js file/s
+
+## Reflections on Writing Unit Tests for Clean Code
+
+1. How do unit tests help keep code clean?
+
+Unit tests help keep code clean as it acts as a safety net that allows developers to safely refactor a specific section on the code base without the risk of breaking other features or introducing new errors/bugs. It also encourages me and other developers to write code in small, simple pieces that are mainly focused on performing one action only, making the entire project more organized and readable. This is because performing unit tests can show how exactly a specific function or feature should work in different scenarios, making it easier to debug and fix issues in the code. Furthermore, unit tests can also help in catching bugs/errors immediately, preventing messy code from being present in the system.
+
+2. What issues did you find while testing?
+
+The function that I used to make different unit tests is a simple function that determines the day and weather based on the inputted data. The different unit tests that I used were the following:
+
+- Should return the correct string for a valid day and weather
+- Is case-sensitive and returns an error message for lowercase inputted data
+- Returns an error message for invalid day
+- Returns an error message for invalid weather
+- Returns an error message if both day and weather are invalid
+
+I chose Jest as my testing framework and when I ran it, it was able to run all 5 unit tests. After running all unit tests, it concluded that the function had no errors/issues as it was able to pass all 5 unit tests that I made. This meant that the function was able to function with its intended purposes without any bugs or issues present. 
+
+I also altered the function to see if it can detect an error in my code wherein I changed the logic of validating the inputted data. I changed the OR operator to AND operator meaning that it only returns an error message if both the day and weather are invalid. After running Jest, the tests that involve return an error message for an invalid day only, an invalid weather only and for lowercase values failed. This means that it was able to catch the errors immediately, making it easier for me to fix the code.
