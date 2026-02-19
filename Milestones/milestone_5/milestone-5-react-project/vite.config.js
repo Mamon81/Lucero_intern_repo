@@ -7,4 +7,19 @@ export default defineConfig({
     react(),
     tailwindcss(), // Processes your CSS automatically
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
+  esbuild: {
+    loader: 'jsx',
+    include: /src\/.*\.jsx?$/,
+    exclude: [],
+  },
 });
