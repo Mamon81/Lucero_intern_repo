@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-function ItemList({ onBack }) {
+function ItemList() {
   const [inputText, setInputText] = useState('');
   const [items, setItems] = useState([]);
   const [error, setError] = useState('');
@@ -53,14 +53,6 @@ function ItemList({ onBack }) {
           </li>
         ))}
       </ul>
-
-      <button
-        type="button"
-        onClick={onBack}
-        className="mt-5 rounded-lg border-2 border-zinc-600 bg-neutral-200 px-5 py-2 text-1xl font-medium text-orange-300 transition-all hover:bg-orange-900 hover:text-neutral-200 active:scale-95"
-      >
-        Back to Counter
-      </button>
     </div>
   );
 }
