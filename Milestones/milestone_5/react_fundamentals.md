@@ -19,3 +19,23 @@ Components are important in React as they serve as the basic building blocks nee
 1. What happens if we modify state directly instead of using setState?
 
 If we modify state directly instead of using setState, this will update the variable's value in memory but will not update the system's UI in real time. This will result in the UI of the system being out of sync. React can only refresh the system's UI with the new data when using setter functions like setState. If not used, it will result in the system being broken since its UI is displaying old information.
+
+# Working with Lists & User Input
+
+1. What are some common issues when working with lists in React?
+
+- Key Prop Mismanagement
+
+Using unstable or non-unique keys is a major issue in React when using lists. This often leads to significant UI issues where the system is displaying incorrect information or losing track of the state of the component while rendering the UI.
+
+- Performance Degradation
+
+Working with big lists of data often causes the browser to slow down due to the rendering of all the items in the list when the parent component changes. This is because React is rendering all the items in the list simultaneously. This causes the browser to slow down when the user is scrolling through the list of items.
+
+- State Mutation Errors
+
+Modifying the list's state directly by pushing new items to the list's array will prevent React from detecting the change. This means the UI will not update even when the state has changed. To update the UI correctly, the state must be immutable. This can be achieved using the spread operator or the .map() function to create a new list of state objects.
+
+- UI Issues in Dynamic Lists
+
+Not correctly handling the list of items by failing to wrap the list of items within a React Fragment or failing to provide a unique ID to the component causes issues where the UI is broken. This is because React is unable to correctly identify the state of the component. This is especially true when the user deletes an item in the list.
