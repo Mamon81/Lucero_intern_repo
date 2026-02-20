@@ -39,3 +39,22 @@ Modifying the list's state directly by pushing new items to the list's array wil
 - UI Issues in Dynamic Lists
 
 Not correctly handling the list of items by failing to wrap the list of items within a React Fragment or failing to provide a unique ID to the component causes issues where the UI is broken. This is because React is unable to correctly identify the state of the component. This is especially true when the user deletes an item in the list.
+
+# Navigation with React Router
+
+1. What are the advantages of client-side routing?
+
+- Faster Performance and Responsiveness
+  By eliminating full-page reloads, it makes navigating between views almost instantaneous. This is due to the browser loading only the required data for the next view, making the application more responsive and app-like.
+
+- Improved User Experience
+  Client-side routing enables smooth transitions and complex animations between pages, which cannot be achieved with traditional server-side reloads. This is especially useful for Single Page Applications (SPAs), where the primary goal is to deliver a fast user experience.
+
+- Less Server Load
+  The server is not burdened as much since it mostly deals with API data instead of full HTML page reloads for every request. This change in functionality makes backend development simpler and more efficient.
+
+- Maintenance of Persistent State
+  UI components such as headers, footers, and navigation menus stay intact during navigation. This enables the application to retain user information, such as scroll positions or input values, across different views.
+
+- Facilitates Direct Linking and History
+  Client-side routers can handle URL history to ensure that certain views are bookmarkable and shareable. This enables the same level of navigation as a traditional website while retaining the performance of an app.
