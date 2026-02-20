@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-orange-300 text-white gap-8">
       <HelloWorld name="Focus Bear" />
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap justify-center">
         <button
           type="button"
           onClick={() => navigate('/counter')}
@@ -28,6 +28,13 @@ function Home() {
           className="rounded-lg border-2 border-zinc-600 bg-neutral-200 px-5 py-2 text-lg font-medium text-orange-300 transition-all hover:bg-orange-900 hover:text-neutral-200 active:scale-95"
         >
           Profile
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate('/useeffect')}
+          className="rounded-lg border-2 border-zinc-600 bg-neutral-200 px-5 py-2 text-lg font-medium text-orange-300 transition-all hover:bg-orange-900 hover:text-neutral-200 active:scale-95"
+        >
+          Use Effect Demo
         </button>
       </div>
     </div>
