@@ -57,4 +57,4 @@ Not correctly handling the list of items by failing to wrap the list of items wi
   UI components such as headers, footers, and navigation menus stay intact during navigation. This enables the application to retain user information, such as scroll positions or input values, across different views.
 
 - Facilitates Direct Linking and History
-  Client-side routers can handle URL history to ensure that certain views are bookmarkable and shareable. This enables the same level of navigation as a traditional website while retaining the performance of an app.
+  Client-side routers can handle URL history to ensure that certain views can be bookmarked and shared. This enables the same level of navigation as a traditional website while retaining the performance of an app.
