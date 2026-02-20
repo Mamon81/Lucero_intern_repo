@@ -4,6 +4,7 @@ import Counter from './pages/Counter';
 import ItemList from './pages/ItemList';
 import Profile from './pages/Profile';
 import UseEffectDemo from './pages/UseEffectDemo';
+import UseMemoDemo from './pages/UseMemo';
 
 function App() {
   const navigate = useNavigate();
@@ -65,6 +66,21 @@ function App() {
               type="button"
               onClick={() => navigate('/')}
               className="absolute bottom-70 rounded-lg border-2 border-zinc-600 bg-neutral-200 px-5 py-2 text-lg font-medium text-orange-300 transition-all hover:bg-orange-900 hover:text-neutral-200 active:scale-95"
+            >
+              Back to Home
+            </button>
+          </div>
+        }
+      />
+      <Route
+        path="/usememo"
+        element={
+          <div className="flex h-screen flex-col items-center justify-center bg-orange-300 text-white">
+            <UseMemoDemo />
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="mt-5 rounded-lg border-2 border-zinc-600 bg-neutral-200 px-5 py-2 text-lg font-medium text-orange-300 transition-all hover:bg-orange-900 hover:text-neutral-200 active:scale-95"
             >
               Back to Home
             </button>
