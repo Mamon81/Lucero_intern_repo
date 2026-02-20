@@ -14,13 +14,13 @@ The main challenge that I faced during setup was trying to install Tailwind CSS 
 
 Components are important in React as they serve as the basic building blocks needed to create your system. They allows developers to be able to break the complexity of their UI into smaller and manageable pieces. By utilizing components, it allows me to be able to create a specific item in my UI like a button and be able to reuse throughout the rest of my system. This not only saves me time but also prevents me from duplicated code. Lastly, it also makes the system easier to maintain. Since components consist of smaller pieces of your complex system, it makes updates to a specific part of the system easier to implement since it will only be applied to its corresponding component.
 
-# Handling State & User Input
+## Handling State & User Input
 
 1. What happens if we modify state directly instead of using setState?
 
 If we modify state directly instead of using setState, this will update the variable's value in memory but will not update the system's UI in real time. This will result in the UI of the system being out of sync. React can only refresh the system's UI with the new data when using setter functions like setState. If not used, it will result in the system being broken since its UI is displaying old information.
 
-# Working with Lists & User Input
+## Working with Lists & User Input
 
 1. What are some common issues when working with lists in React?
 
@@ -40,7 +40,7 @@ Modifying the list's state directly by pushing new items to the list's array wil
 
 Not correctly handling the list of items by failing to wrap the list of items within a React Fragment or failing to provide a unique ID to the component causes issues where the UI is broken. This is because React is unable to correctly identify the state of the component. This is especially true when the user deletes an item in the list.
 
-# Navigation with React Router
+## Navigation with React Router
 
 1. What are the advantages of client-side routing?
 
@@ -58,3 +58,17 @@ Not correctly handling the list of items by failing to wrap the list of items wi
 
 - Facilitates Direct Linking and History
   Client-side routers can handle URL history to ensure that certain views can be bookmarked and shared. This enables the same level of navigation as a traditional website while retaining the performance of an app.
+
+## Understanding React Hooks: useEffect
+
+1. When should you use useEffect instead of handling logic inside event handlers?
+
+useEffect should be used when you want logic to happen automatically. This usually occurs when a component has appeared on the screen or its data has changed. It is a tool that helps in synchronization that helps me keep my app in sync with external things, such as a database, a timer, or a browser window. In contrast, event handlers are used for logic that should happen only when the user actually does something, such as clicking a button or submitting a form.
+
+2. What happens if you don't provide a dependency array?
+
+If I don’t pass in a dependency array, my useEffect will run after every single render of the component. This means that the code inside the hook will execute when the component is first rendered, and then will run again every time any state or prop changes. This creates a never ending run of useEffect. Without providing a dependency array, I could potentially create infinite loops where updating state triggers another render, which then triggers the effect again as well as cause performance issues because the app is re-running logic that doesn’t need to be re-run.
+
+3. How can improper use of useEffect cause performance issues?
+
+When useEffect is used incorrectly, it can cause performance issues such as my application slowing down or even crash. This is due to unnecessary re-renders and infinite loops. This is usually caused by forgetting to provide a dependency array as mentioned in the previous question, or when an effect updates a state that triggers said effect repeatedly. Furthermore, when a cleanup function is not used, it can cause memory leaks. This is because the application continues to run tasks in the background even after a page has been closed.
