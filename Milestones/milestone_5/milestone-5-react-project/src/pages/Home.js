@@ -50,6 +50,13 @@ function Home() {
         >
           Use Callback Demo
         </button>
+        <button
+          type="button"
+          onClick={() => navigate('/testapi')}
+          className="rounded-lg border-2 border-zinc-600 bg-neutral-200 px-5 py-2 text-lg font-medium text-orange-300 transition-all hover:bg-orange-900 hover:text-neutral-200 active:scale-95"
+        >
+          Test API Demo
+        </button>
       </div>
     </div>
   );
