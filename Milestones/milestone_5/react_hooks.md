@@ -42,7 +42,7 @@ The difference between useCallback and useMemo is what each hook stores in memor
 
 - During the first render
 
-There is a slight overhead when using the hook for the first time a component is loaded. The performance benefits gained from using useCallback will only appear during subsequent re-renders when the function can be pulled fron the cache instead of being rebuilt.
+There is a slight overhead when using the hook for the first time a component is loaded. The performance benefits gained from using useCallback will only appear during subsequent re-renders when the function can be pulled from the cache instead of being rebuilt.
 
 - For simple, non - memoized components
 
@@ -58,7 +58,7 @@ If the function is not passed down as a prop to other components or used as a de
 
 - When dependencies change frequently
 
-If the values in the dependency array change every single time there is a render, this results in the function be recalculated every time. This defeats the purpose of useCallback and instead affs unnecessary processing overhead to the application.
+If the values in the dependency array change every single time there is a render, this results in the function be recalculated every time. This defeats the purpose of useCallback and instead offers unnecessary processing overhead to the application.
 
 - For "native" Javascript operations
 
