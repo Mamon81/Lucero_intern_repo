@@ -27,3 +27,39 @@ The useMemo hook should not be used for small, or not heavy computational tasks 
 3. What happens if you remove useMemo from your implementation?
 
 If I remove useMemo from my UseMemo.js file, the costly calculation will have to be performed from scratch every single time the component re-renders, no matter what the reason is. For example, if I click on the "Re-render Count" button, the application will freeze for a split second because the CPU has to re-count to one billion before it can change the text on the screen. Without the useMemo part of the code, my computer will forget the answer to the question, making a simple button click a costly, repetitive process that slows down the entire experience.
+
+## Preventing Unnecessary Renders with useCallback
+
+1. What problem does useCallback solve?
+
+The useCallback hook solves the problem of function recreation. In JavaScript, every time a component is re-rendered, it creates completely new copies of its functions with new memory locations, even though the code logic inside the functions remains the same. This becomes a problem when these functions are passed as props to other components or used as dependencies in other hooks. This is because React will pick up on the new memory location and think that a real change has occurred. The useCallback hook solves this problem by caching the function, so that its "identity" in memory is "frozen" and it always remains the same. This prevents other components who receives the function to not think that a real change has occurred.
+
+2. How does useCallback work differently from useMemo?
+
+The difference between useCallback and useMemo is what each hook stores in memory. useCallback memoizes or stores the function definition itself. While useMemo memoizes or stores the computed result of a function. When a function is wrapped with useCallback, React ensures that the same function reference is returned during re-renders. On the other hand, useMemo runs the function and stores its return value, which is then reused during subsequent renders to prevent expensive calculations. In conclusion, useCallback is applied to ensure a stable reference to a function, while useMemo ensures a stable reference to a computed value.
+
+3. When would useCallback not be useful?
+
+- During the first render
+
+There is a slight overhead when using the hook for the first time a component is loaded. The performance benefits gained from using useCallback will only appear during subsequent re-renders when the function can be pulled from the cache instead of being rebuilt.
+
+- For simple, non - memoized components
+
+If the child component is not wrapped with React.memo, it will re-render every time the parent component does, regardless of whether useCall is used.
+
+- When performance gains are negligible
+
+useCallback is unnecessary when it is used in simple components or functions that re-render quickly.
+
+- For functions used only within the same component
+
+If the function is not passed down as a prop to other components or used as a dependency in other hooks such as useEffect, there is no need to preserve the its memory identity.
+
+- When dependencies change frequently
+
+If the values in the dependency array change every single time there is a render, this results in the function be recalculated every time. This defeats the purpose of useCallback and instead offers unnecessary processing overhead to the application.
+
+- For "native" Javascript operations
+
+If useCallback is used on simple basic operations such as math or string concatenation, it produces more work for the browser/application than it is worth. Using useCallback on these simple operations adds unnecessary memory and processing overhead to my code.
