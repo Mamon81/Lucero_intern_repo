@@ -4,7 +4,10 @@ const prettierConfig = require('eslint-config-prettier');
 
 module.exports = [
   {
-    ignores: ['**/milestone-5-react-project/**'],
+    ignores: [
+      '**/milestone-5-react-project/**',
+      '**/milestone-7-react-project/**',
+    ],
   },
   js.configs.recommended,
   prettierConfig,

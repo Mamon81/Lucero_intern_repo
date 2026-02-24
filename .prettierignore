@@ -10,3 +10,7 @@ yarn.lock
 .env.development.local
 .env.test.local
 .env.production.local
+
+# React projects (managed independently)
+Milestones/milestone_5/milestone-5-react-project/
+Milestones/milestone_7/milestone-7-react-project/
