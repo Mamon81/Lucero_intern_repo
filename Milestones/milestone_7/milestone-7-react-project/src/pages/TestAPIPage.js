@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import useTestApiRequest from '../hooks/useTestAPIRequest';
+import { useSelector } from 'react-redux';
+import { selectCount } from '../slices/counterSlice';
+import { getCounterMessage } from '../constants/counterMessages';
 
 function TestAPIPage() {
   const { makeRequest, loading, error, data } = useTestApiRequest();
+  const count = useSelector(selectCount);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -29,6 +33,14 @@ function TestAPIPage() {
         <h1 className="text-3xl font-bold text-neutral-800">
           Test API Request
         </h1>
+        <div className="text-lg font-medium text-neutral-700">
+          Counter: {count}
+        </div>
+        {getCounterMessage(count) && (
+          <div className="text-lg font-medium text-neutral-700">
+            {getCounterMessage(count)}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
           <div className="flex flex-col gap-2">

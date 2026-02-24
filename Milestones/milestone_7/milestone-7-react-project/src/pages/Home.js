@@ -1,12 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 import HelloWorld from './HelloWorld';
+import { useSelector } from 'react-redux';
+import { selectCount } from '../slices/counterSlice';
+import { getCounterMessage } from '../constants/counterMessages';
 
 function Home() {
   const navigate = useNavigate();
+  const count = useSelector(selectCount);
 
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-orange-300 text-white gap-8">
       <HelloWorld name="Focus Bear" />
+      <div className="text-4xl font-medium text-neutral-200 [-webkit-text-stroke:1px_black]">
+        Counter: {count}
+      </div>
+      {getCounterMessage(count) && (
+        <div className="text-2xl font-bold text-neutral-200 [-webkit-text-stroke:1px_black]">
+          {getCounterMessage(count)}
+        </div>
+      )}
       <div className="flex gap-4 flex-wrap justify-center">
         <button
           type="button"

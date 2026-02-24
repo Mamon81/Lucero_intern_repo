@@ -1,4 +1,7 @@
 import React, { useState, useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCount } from '../slices/counterSlice';
+import { getCounterMessage } from '../constants/counterMessages';
 
 const expensiveCalculation = (num) => {
   console.log('Calculating...');
@@ -10,7 +13,8 @@ const expensiveCalculation = (num) => {
 
 const UseMemoDemo = () => {
   const [count, setCount] = useState(0);
-  const [items] = useState([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
+  const [items] = useState([10, 20, 30, 40, 50]);
+  const countValue = useSelector(selectCount);
 
   const memorizedValue = useMemo(() => {
     return expensiveCalculation(items[0]);
@@ -21,6 +25,14 @@ const UseMemoDemo = () => {
       <h1 className="text-3xl font-bold text-neutral-800">
         useMemo Performance Demo
       </h1>
+      <div className="text-lg font-medium text-neutral-700">
+        Counter: {countValue}
+      </div>
+      {getCounterMessage(countValue) && (
+        <div className="text-lg font-medium text-neutral-700">
+          {getCounterMessage(countValue)}
+        </div>
+      )}
       <p className="mt-4 text-lg text-neutral-700">
         Expensive Result:{' '}
         <span className="font-bold text-orange-600">{memorizedValue}</span>
