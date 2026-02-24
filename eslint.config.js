@@ -7,6 +7,7 @@ module.exports = [
     ignores: [
       '**/milestone-5-react-project/**',
       '**/milestone-7-react-project/**',
+      '**/milestone8Project/**',
     ],
   },
   js.configs.recommended,
