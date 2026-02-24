@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCount } from '../slices/counterSlice';
+import { getCounterMessage } from '../constants/counterMessages';
 
 const UseEffectDemo = () => {
   const [dogData, setDogData] = useState(null);
+  const count = useSelector(selectCount);
 
   useEffect(() => {
     console.log('Component has mounted!');
@@ -27,7 +31,14 @@ const UseEffectDemo = () => {
       <h1 className="text-3xl font-bold text-neutral-800">
         Dog Breed Explorer
       </h1>
-
+      <div className="text-lg font-medium text-neutral-700">
+        Counter: {count}
+      </div>
+      {getCounterMessage(count) && (
+        <div className="text-lg font-medium text-neutral-700">
+          {getCounterMessage(count)}
+        </div>
+      )}
       <button
         type="button"
         onClick={fetchData}
