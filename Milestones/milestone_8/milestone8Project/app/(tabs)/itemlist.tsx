@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
-import { StyleSheet, FlatList, View } from 'react-native';
-import { Button, Input, Card, Text } from '@rneui/themed';
-
+import {
+  StyleSheet,
+  FlatList,
+  View,
+  TextInput,
+  Text as RNText,
+} from 'react-native';
+import { Button, Card, Text } from '@rneui/themed';
 import { ThemedView } from '@/components/themed-view';
+import { useResponsive } from '@/hooks/use-responsive';
 
 export default function ItemListScreen() {
   const [inputText, setInputText] = useState('');
   const [items, setItems] = useState<{ id: string; text: string }[]>([]);
   const [error, setError] = useState('');
+
+  const { width, isLandscape } = useResponsive();
 
   const addItem = () => {
     if (inputText.trim() === '') {
@@ -21,36 +29,54 @@ export default function ItemListScreen() {
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <Input
-          placeholder="Enter item"
-          placeholderTextColor="#888"
-          value={inputText}
-          onChangeText={(text) => {
-            setInputText(text);
-            setError('');
-          }}
-          containerStyle={styles.inputWrapper}
-          inputContainerStyle={styles.inputInnerContainer}
-          inputStyle={styles.input}
-          errorMessage={error}
-          errorStyle={styles.errorText}
-        />
+    <ThemedView style={[styles.container, { paddingHorizontal: width * 0.05 }]}>
+      <View
+        style={[
+          styles.inputContainer,
+          {
+            flexDirection: isLandscape ? 'row' : 'column',
+            alignItems: isLandscape ? 'center' : 'stretch',
+          },
+        ]}
+      >
+        <View style={[styles.inputWrapper, isLandscape && { flex: 1 }]}>
+          <TextInput
+            placeholder="Enter item"
+            placeholderTextColor="#888"
+            value={inputText}
+            onChangeText={(text) => {
+              setInputText(text);
+              setError('');
+            }}
+            style={styles.textInput}
+            underlineColorAndroid="transparent"
+          />
+          {!!error && <RNText style={styles.errorText}>{error}</RNText>}
+        </View>
         <Button
           title="Add Item"
           onPress={addItem}
           type="solid"
           buttonStyle={styles.button}
-          containerStyle={styles.buttonContainer}
+          containerStyle={[
+            styles.buttonContainer,
+            { width: isLandscape ? 'auto' : '100%' },
+          ]}
         />
       </View>
 
       <FlatList
         data={items}
-        keyExtractor={(items) => items.id}
+        key={isLandscape ? 'h-grid' : 'v-list'}
+        numColumns={isLandscape ? 2 : 1}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Card containerStyle={styles.listItem}>
+          <Card
+            containerStyle={[
+              styles.listItem,
+              { width: isLandscape ? '46%' : 'auto' },
+            ]}
+          >
             <Text style={styles.itemText}>{item.text}</Text>
           </Card>
         )}
@@ -63,39 +89,33 @@ export default function ItemListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 60,
+    paddingTop: 60,
   },
   inputContainer: {
-    flexDirection: 'row',
     gap: 10,
     marginBottom: 10,
-    alignItems: 'flex-start',
   },
   inputWrapper: {
-    flex: 1,
-    paddingHorizontal: 0,
+    width: '100%',
   },
-  inputInnerContainer: {
+  textInput: {
     borderWidth: 2,
     borderColor: '#ccc',
     borderRadius: 8,
     backgroundColor: '#fff',
-    paddingHorizontal: 10,
-  },
-  input: {
+    paddingHorizontal: 12,
+    paddingVertical: 10,
     color: '#000',
+    fontSize: 16,
   },
   buttonContainer: {
     marginTop: 3,
-    backgroundColor: 'transparent',
-    borderWidth: 0,
   },
   button: {
     backgroundColor: '#f97316',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,
-    borderWidth: 0,
   },
   errorText: {
     fontStyle: 'italic',
@@ -109,9 +129,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f3f4f6',
     borderLeftWidth: 4,
     borderLeftColor: '#f97316',
-    marginBottom: 10,
-    marginHorizontal: 0,
     borderRadius: 8,
+    marginVertical: 5,
   },
   itemText: {
     color: '#1f2937',
