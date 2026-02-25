@@ -56,7 +56,7 @@ export default function ItemListScreen() {
             <Text style={styles.itemText}>{item.text}</Text>
           </View>
         )}
-        contentContainerStyle={styles.list}
+        contentContainerStyle={styles.listContent}
       />
     </ThemedView>
   );
