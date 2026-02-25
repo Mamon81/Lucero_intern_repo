@@ -1,13 +1,15 @@
 import {
   DarkTheme,
   DefaultTheme,
-  ThemeProvider,
+  ThemeProvider as NavigationThemeProvider,
 } from '@react-navigation/native';
+import { ThemeProvider } from '@rneui/themed';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { rneuiTheme } from '@/constants/theme-config';
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -17,15 +19,19 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="modal"
-          options={{ presentation: 'modal', title: 'Modal' }}
-        />
-      </Stack>
-      <StatusBar style="auto" />
+    <ThemeProvider theme={rneuiTheme}>
+      <NavigationThemeProvider
+        value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+      >
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="modal"
+            options={{ presentation: 'modal', title: 'Modal' }}
+          />
+        </Stack>
+        <StatusBar style="auto" />
+      </NavigationThemeProvider>
     </ThemeProvider>
   );
 }

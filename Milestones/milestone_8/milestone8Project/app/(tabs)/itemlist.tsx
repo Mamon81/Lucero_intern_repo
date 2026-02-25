@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import {
   StyleSheet,
-  TextInput,
-  TouchableOpacity,
   FlatList,
   View,
-  Text,
+  TextInput,
+  Text as RNText,
 } from 'react-native';
-
+import { Button, Card, Text } from '@rneui/themed';
 import { ThemedView } from '@/components/themed-view';
+import { useResponsive } from '@/hooks/use-responsive';
 
 export default function ItemListScreen() {
   const [inputText, setInputText] = useState('');
   const [items, setItems] = useState<{ id: string; text: string }[]>([]);
   const [error, setError] = useState('');
+
+  const { width, isLandscape } = useResponsive();
 
   const addItem = () => {
     if (inputText.trim() === '') {
@@ -27,34 +29,56 @@ export default function ItemListScreen() {
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter item"
-          placeholderTextColor="#888"
-          value={inputText}
-          onChangeText={(text) => {
-            setInputText(text);
-            setError('');
-          }}
+    <ThemedView style={[styles.container, { paddingHorizontal: width * 0.05 }]}>
+      <View
+        style={[
+          styles.inputContainer,
+          {
+            flexDirection: isLandscape ? 'row' : 'column',
+            alignItems: isLandscape ? 'center' : 'stretch',
+          },
+        ]}
+      >
+        <View style={[styles.inputWrapper, isLandscape && { flex: 1 }]}>
+          <TextInput
+            placeholder="Enter item"
+            placeholderTextColor="#888"
+            value={inputText}
+            onChangeText={(text) => {
+              setInputText(text);
+              setError('');
+            }}
+            style={styles.textInput}
+            underlineColorAndroid="transparent"
+          />
+          {!!error && <RNText style={styles.errorText}>{error}</RNText>}
+        </View>
+        <Button
+          title="Add Item"
+          onPress={addItem}
+          type="solid"
+          buttonStyle={styles.button}
+          containerStyle={[
+            styles.buttonContainer,
+            { width: isLandscape ? 'auto' : '100%' },
+          ]}
         />
-        <TouchableOpacity style={styles.button} onPress={addItem}>
-          <Text style={styles.buttonText}>Add Item</Text>
-        </TouchableOpacity>
       </View>
-
-      {error ? (
-        <Text style={[styles.errorText, { fontStyle: 'italic' }]}>{error}</Text>
-      ) : null}
 
       <FlatList
         data={items}
-        keyExtractor={(items) => items.id}
+        key={isLandscape ? 'h-grid' : 'v-list'}
+        numColumns={isLandscape ? 2 : 1}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.listItem}>
+          <Card
+            containerStyle={[
+              styles.listItem,
+              { width: isLandscape ? '46%' : 'auto' },
+            ]}
+          >
             <Text style={styles.itemText}>{item.text}</Text>
-          </View>
+          </Card>
         )}
         contentContainerStyle={styles.listContent}
       />
@@ -65,36 +89,37 @@ export default function ItemListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 60,
+    paddingTop: 60,
   },
   inputContainer: {
-    flexDirection: 'row',
     gap: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
-  input: {
-    flex: 1,
+  inputWrapper: {
+    width: '100%',
+  },
+  textInput: {
     borderWidth: 2,
     borderColor: '#ccc',
-    padding: 10,
     borderRadius: 8,
     backgroundColor: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
     color: '#000',
+    fontSize: 16,
+  },
+  buttonContainer: {
+    marginTop: 3,
   },
   button: {
     backgroundColor: '#f97316',
     paddingHorizontal: 20,
-    justifyContent: 'center',
+    paddingVertical: 10,
     borderRadius: 8,
   },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
   errorText: {
-    color: 'red',
+    fontStyle: 'italic',
     fontSize: 12,
-    marginBottom: 10,
   },
   listContent: {
     paddingBottom: 20,
@@ -104,8 +129,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f3f4f6',
     borderLeftWidth: 4,
     borderLeftColor: '#f97316',
-    marginBottom: 10,
-    elevation: 2,
+    borderRadius: 8,
+    marginVertical: 5,
   },
   itemText: {
     color: '#1f2937',
