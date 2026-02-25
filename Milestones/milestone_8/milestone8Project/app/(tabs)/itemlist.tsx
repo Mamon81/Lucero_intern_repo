@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-  View,
-  Text,
-} from 'react-native';
+import { StyleSheet, FlatList, View } from 'react-native';
+import { Button, Input, Card, Text } from '@rneui/themed';
 
 import { ThemedView } from '@/components/themed-view';
 
@@ -29,8 +23,7 @@ export default function ItemListScreen() {
   return (
     <ThemedView style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
+        <Input
           placeholder="Enter item"
           placeholderTextColor="#888"
           value={inputText}
@@ -38,23 +31,28 @@ export default function ItemListScreen() {
             setInputText(text);
             setError('');
           }}
+          containerStyle={styles.inputWrapper}
+          inputContainerStyle={styles.inputInnerContainer}
+          inputStyle={styles.input}
+          errorMessage={error}
+          errorStyle={styles.errorText}
         />
-        <TouchableOpacity style={styles.button} onPress={addItem}>
-          <Text style={styles.buttonText}>Add Item</Text>
-        </TouchableOpacity>
+        <Button
+          title="Add Item"
+          onPress={addItem}
+          type="solid"
+          buttonStyle={styles.button}
+          containerStyle={styles.buttonContainer}
+        />
       </View>
-
-      {error ? (
-        <Text style={[styles.errorText, { fontStyle: 'italic' }]}>{error}</Text>
-      ) : null}
 
       <FlatList
         data={items}
         keyExtractor={(items) => items.id}
         renderItem={({ item }) => (
-          <View style={styles.listItem}>
+          <Card containerStyle={styles.listItem}>
             <Text style={styles.itemText}>{item.text}</Text>
-          </View>
+          </Card>
         )}
         contentContainerStyle={styles.listContent}
       />
@@ -70,31 +68,38 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     gap: 10,
-    marginBottom: 20,
+    marginBottom: 10,
+    alignItems: 'flex-start',
   },
-  input: {
+  inputWrapper: {
     flex: 1,
+    paddingHorizontal: 0,
+  },
+  inputInnerContainer: {
     borderWidth: 2,
     borderColor: '#ccc',
-    padding: 10,
     borderRadius: 8,
     backgroundColor: '#fff',
+    paddingHorizontal: 10,
+  },
+  input: {
     color: '#000',
+  },
+  buttonContainer: {
+    marginTop: 3,
+    backgroundColor: 'transparent',
+    borderWidth: 0,
   },
   button: {
     backgroundColor: '#f97316',
     paddingHorizontal: 20,
-    justifyContent: 'center',
+    paddingVertical: 10,
     borderRadius: 8,
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    borderWidth: 0,
   },
   errorText: {
-    color: 'red',
+    fontStyle: 'italic',
     fontSize: 12,
-    marginBottom: 10,
   },
   listContent: {
     paddingBottom: 20,
@@ -105,7 +110,8 @@ const styles = StyleSheet.create({
     borderLeftWidth: 4,
     borderLeftColor: '#f97316',
     marginBottom: 10,
-    elevation: 2,
+    marginHorizontal: 0,
+    borderRadius: 8,
   },
   itemText: {
     color: '#1f2937',
