@@ -59,6 +59,25 @@ export default function HomeScreen() {
           },
         ]}
       />
+      <Button
+        title="Animated Demo"
+        type="outline"
+        onPress={() => router.push('/animated-demo')}
+        containerStyle={styles.secondaryButtonContainer}
+        buttonStyle={[
+          styles.buttonStyle,
+          {
+            borderColor: theme.colors.black,
+            backgroundColor: theme.colors.white,
+          },
+        ]}
+        titleStyle={[
+          styles.buttonTitle,
+          {
+            color: theme.colors.black,
+          },
+        ]}
+      />
     </ThemedView>
   );
 }

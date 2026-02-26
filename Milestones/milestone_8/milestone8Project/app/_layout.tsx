@@ -39,6 +39,13 @@ export default function RootLayout() {
               name="gesture-demo"
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="animated-demo"
+              options={{
+                headerShown: false,
+                presentation: 'card',
+              }}
+            />
           </Stack>
           <StatusBar style="auto" />
         </NavigationThemeProvider>
