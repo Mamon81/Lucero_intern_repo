@@ -13,6 +13,10 @@ export default function HomeScreen() {
     router.push('/learn-more');
   };
 
+  const handleGestureDemo = () => {
+    router.push('/gesture-demo');
+  };
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title" style={styles.titleText}>
@@ -22,6 +26,25 @@ export default function HomeScreen() {
         title="Learn More"
         type="outline"
         onPress={handleLearnMore}
+        buttonStyle={[
+          styles.buttonStyle,
+          {
+            borderColor: theme.colors.black,
+            backgroundColor: theme.colors.white,
+          },
+        ]}
+        titleStyle={[
+          styles.buttonTitle,
+          {
+            color: theme.colors.black,
+          },
+        ]}
+      />
+      <Button
+        title="Gesture Demo"
+        type="outline"
+        onPress={handleGestureDemo}
+        containerStyle={styles.secondaryButtonContainer}
         buttonStyle={[
           styles.buttonStyle,
           {
@@ -66,5 +89,8 @@ const styles = StyleSheet.create({
   buttonTitle: {
     fontWeight: 'bold',
     fontSize: 16,
+  },
+  secondaryButtonContainer: {
+    marginTop: 12,
   },
 });
