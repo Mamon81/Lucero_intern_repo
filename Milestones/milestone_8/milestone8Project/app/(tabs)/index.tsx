@@ -1,14 +1,41 @@
+import { useRouter } from 'expo-router';
 import { StyleSheet } from 'react-native';
+import { Button, useTheme } from '@rneui/themed';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
 export default function HomeScreen() {
+  const router = useRouter();
+  const { theme } = useTheme();
+
+  const handleLearnMore = () => {
+    router.push('/learn-more');
+  };
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title" style={styles.titleText}>
         Welcome to the Milestone 8 Project!
       </ThemedText>
+      <Button
+        title="Learn More"
+        type="outline"
+        onPress={handleLearnMore}
+        buttonStyle={[
+          styles.buttonStyle,
+          {
+            borderColor: theme.colors.black,
+            backgroundColor: theme.colors.white,
+          },
+        ]}
+        titleStyle={[
+          styles.buttonTitle,
+          {
+            color: theme.colors.black,
+          },
+        ]}
+      />
     </ThemedView>
   );
 }
@@ -18,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   titleText: {
     color: '#FFFFFF',
@@ -27,5 +55,16 @@ const styles = StyleSheet.create({
     textShadowColor: '#000000',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
+    marginBottom: 30,
+  },
+  buttonStyle: {
+    borderWidth: 2,
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+  },
+  buttonTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
