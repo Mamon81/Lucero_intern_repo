@@ -8,6 +8,7 @@ module.exports = [
       '**/milestone-5-react-project/**',
       '**/milestone-7-react-project/**',
       '**/milestone8Project/**',
+      '**/milestone10Project/**',
     ],
   },
   js.configs.recommended,
