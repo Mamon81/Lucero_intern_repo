@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
   buttonStyle: {
     borderWidth: 2,
     paddingVertical: 12,
-    paddingHorizontal: 30,
     borderRadius: 8,
+    width: 159,
   },
   buttonTitle: {
     fontWeight: 'bold',
