@@ -1,7 +1,22 @@
 import axios from 'axios';
+import axiosRetry, {
+  exponentialDelay,
+  isNetworkOrIdempotentRequestError,
+} from 'axios-retry';
 import { Habit } from '../datatypes';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
+
+axiosRetry(axios, {
+  retries: 3,
+  retryDelay: exponentialDelay,
+  retryCondition: (error) => {
+    return (
+      isNetworkOrIdempotentRequestError(error) ||
+      (error.response?.status ? error.response.status >= 500 : false)
+    );
+  },
+});
 
 export const fetchHabits = async (): Promise<Habit[]> => {
   try {
