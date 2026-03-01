@@ -95,3 +95,11 @@ WEEK 14 (May 11 - 15) - 40 hours
 WEEK 15 (May 18 - 22) - 40 hours
 
 - Reflect on internship learning; prepare final project report/presentation
+
+Focus Bear Logging
+
+Below are screenshots showcasing my recent focus sessions on the Focus Bear app:
+
+![Screenshot of recent Focus Logs](../assets/Focus%20Bear%20Logs_1.jpg)
+![Screenshot of Productivity Page](../assets/Focus%20Bear%20Logs_2.jpg)
+![Screenshot of recent Tasks in ToDo List](../assets/Focus%20Bear%20Logs_3.jpg)
