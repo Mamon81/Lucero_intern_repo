@@ -144,6 +144,41 @@ Compared to manually reviewing commits, git bisect is significantly faster and m
 
 # Writing Meaningful Commit Messages
 
+## My Commit Messages
+
+### Vague Commit Message
+
+![Screenshot of Vague Commit Message](../assets/LuceroCommitMessage1.jpg)
+
+- Commit Message: Added questions
+
+### Overly Detailed Commit Message
+
+![Screenshot of Overly Detailed Commit Message](../assets/LuceroCommitMessage2.jpg)
+
+- Commit Message: docs add answer to question 1 under writing meaningful commit messages.
+
+- Changes
+  - This commit provides a comprehensive answer to the question on what makes a good commit message within the md file.
+
+  - Relates to: Milestone-3-Learn-Git
+  - Section: 3:Learn Git
+  - Reviewed by: Jianna Monique M. Lucero
+
+### Well - Structured Commit Message
+
+![Screenshot of Well - Structured Commit Message](../assets/LuceroCommitMessage3.jpg)
+
+- Commit Message: feat: implement API demo screen
+
+- Changes
+  - Added a new API Calls Demo screen
+  - Created a file for rendering the data structure
+  - Created a service (api.ts) to fetch and display data in a list using Axios
+  - Configured navigation routing from home screen.
+
+## Reflection
+
 1. What makes a good commit message?
 
 A good commit message is that it is able to clearly communicate "what" exactly is the change being contained in the commit as well as "why" is the change being applied. This ensures that future readers as well as other team members are able to understand your original intent of the commit without needing to guess it. Furthermore, a good commit message should represent the commit's single, focused change instead of a mixture of unrelated updates. In conclusion, a good commit message should be descriptive instead of vague in order to ensure that the repository's history and its pushed commits are easy to navigate and review, even if new commits and changes to the code are being applied.
