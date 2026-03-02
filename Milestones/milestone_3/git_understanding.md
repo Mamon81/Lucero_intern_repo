@@ -44,13 +44,33 @@ git blame - inspects a code line by line in order to identify the last person to
 
 2. When would you use it in a real project (hint: these are all really important in long running projects with multiple developers)?
 
-git checkout main -- is used when I've accidentally modified, removed or in some cases corrupted a file and I need to instantly revert it back to its original state from the main branch. This is especially helpful when I'm trying to fix an error or bug, but the error or bug got even worse than before, and I need to quickly restore the code back to its functional version.
+git checkout main -- `<file>`is used when I've accidentally modified, removed or in some cases corrupted a file and I need to instantly revert it back to its original state from the main branch. This is especially helpful when I'm trying to fix an error or bug, but the error or bug got even worse than before, and I need to quickly restore the code back to its functional version.
 
-git cherry-pick - is used when a teammate has written a fix to a critical bug on a different branch that I need immediately, but I'm not ready to pull in the rest of their unfinished work on their respective branch. This command is essential to me as it can allow me to continue being productive on my own branch by adapting important updates or changes from other branches without waiting for them to be finalized.
+Screenshot of Me Using git checkout main -- `<file>`:
+
+![Screenshot of Me using git checkout main -- `<file>`](../assets/LuceroGitCheckoutMain.jpg)
+
+I accidentally modified a section in the file, and by using git checkout main -- `<file>`, I was able to quickly revert the file back to its original state without risking an error or bug to occur.
+
+git cherry-pick `<commit>` - is used when a teammate has written a fix to a critical bug on a different branch that I need immediately, but I'm not ready to pull in the rest of their unfinished work on their respective branch. This command is essential to me as it can allow me to continue being productive on my own branch by adapting important updates or changes from other branches without waiting for them to be finalized.
+
+Screenshot of Me using git cherry-pick `<commit>`:
 
 git log - in cases where a feature starts malfunctioning, the command is used during debugging in order to trace the exact timeline of when the feature starts malfunctioning. It is also used to review the contributions of my team members during the development cycle of the project.
 
-git blame - is used when I encountered a confusing piece of code and need to identify who the original author is of said code to ask for clarifications or to provide feedback during a review. This command makes it easier to deliver a private feedback session to the right person if ever a bug is discovered.
+Screenshot of Me using git log:
+
+![Screenshot of Me using git log](../assets/LuceroGitLog.jpg)
+
+I used git log to track down my recent commits to see my current progress on my onboarding repository.
+
+git blame `<file>` - is used when I encountered a confusing piece of code and need to identify who the original author is of said code to ask for clarifications or to provide feedback during a review. This command makes it easier to deliver a private feedback session to the right person if ever a bug is discovered.
+
+Screenshot of Me using git blame `<file>`:
+
+![Screenshot of Me using git blame `<file>`](../assets/LuceroGitBlame.jpg)
+
+I used git blame `<file>` to track down the changes in my git_understanding.md file. Since it's only me modifying the files, the original author of the changes in the file are from mine alone. However, in future projects, I can be able to see other collaborators and their respective changes in a file by using git blame `<file>`.
 
 3. What surprised you while testing these commands?
 
@@ -90,7 +110,7 @@ Poor commit messages can cause issues later on as it can cause a project's histo
 
 1. Why are PRs important in a team workflow?
 
-Pull Requests are important in a team workflow as they serve as a checkpoint that ensures that the code being integrated into main branch is proprely tested, assessed and reviewed. By providing a dedicated space for your team to review your changes, it allows them to be able to identify bugs and security issues early on, while still maintaining the stability of the main branch. Furthermore, it also fosters a collaborative culture as it can increase transparency, ensuring that every team member understands the reasoning behind the proposed changes to the code.
+Pull Requests are important in a team workflow as they serve as a checkpoint that ensures that the code being integrated into main branch is properly tested, assessed and reviewed. By providing a dedicated space for your team to review your changes, it allows them to be able to identify bugs and security issues early on, while still maintaining the stability of the main branch. Furthermore, it also fosters a collaborative culture as it can increase transparency, ensuring that every team member understands the reasoning behind the proposed changes to the code.
 
 2. What makes a well-structured PR?
 
