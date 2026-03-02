@@ -66,7 +66,7 @@ I used git log to track down my recent commits to see my current progress on my 
 
 git blame `<file>` - is used when I encountered a confusing piece of code and need to identify who the original author is of said code to ask for clarifications or to provide feedback during a review. This command makes it easier to deliver a private feedback session to the right person if ever a bug is discovered.
 
-Screenshot of Me using git blamne `<file>`:
+Screenshot of Me using git blame `<file>`:
 
 ![Screenshot of Me using git blame `<file>`](../assets/LuceroGitBlame.jpg)
 
@@ -110,7 +110,7 @@ Poor commit messages can cause issues later on as it can cause a project's histo
 
 1. Why are PRs important in a team workflow?
 
-Pull Requests are important in a team workflow as they serve as a checkpoint that ensures that the code being integrated into main branch is proprely tested, assessed and reviewed. By providing a dedicated space for your team to review your changes, it allows them to be able to identify bugs and security issues early on, while still maintaining the stability of the main branch. Furthermore, it also fosters a collaborative culture as it can increase transparency, ensuring that every team member understands the reasoning behind the proposed changes to the code.
+Pull Requests are important in a team workflow as they serve as a checkpoint that ensures that the code being integrated into main branch is properly tested, assessed and reviewed. By providing a dedicated space for your team to review your changes, it allows them to be able to identify bugs and security issues early on, while still maintaining the stability of the main branch. Furthermore, it also fosters a collaborative culture as it can increase transparency, ensuring that every team member understands the reasoning behind the proposed changes to the code.
 
 2. What makes a well-structured PR?
 
