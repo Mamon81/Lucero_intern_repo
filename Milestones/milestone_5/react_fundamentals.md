@@ -22,6 +22,12 @@ Components are important in React as they serve as the basic building blocks nee
 
 ## Handling State & User Input
 
+## Proof of Counter.js
+
+![Screenshot of Counter.js](../assets/LuceroCounter.jpg)
+
+The image above showcases a snippet of the Counter.js component visible in the project. I was able to test the component by verifying if the button increments the value by one when pressed. After observing that the value increments by one, it shows that the Counter.js component is working.
+
 1. What happens if we modify state directly instead of using setState?
 
 If we modify state directly instead of using setState, this will update the variable's value in memory but will not update the system's UI in real time. This will result in the UI of the system being out of sync. React can only refresh the system's UI with the new data when using setter functions like setState. If not used, it will result in the system being broken since its UI is displaying old information.
