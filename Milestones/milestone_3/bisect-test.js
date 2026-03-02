@@ -1,3 +1,7 @@
-const calculator = (a, b) => a + b;
+const calculator = (a, b, operation) => {
+  if (operation === 'add') return a + b;
+  if (operation === 'subtract') return a - b;
+  return 0;
+};
 // eslint-disable-next-line no-console
-console.log('Result:', calculator(5, 5));
+console.log('Result:', calculator(10, 5, 'subtract'));
