@@ -56,6 +56,8 @@ git cherry-pick `<commit>` - is used when a teammate has written a fix to a crit
 
 Screenshot of Me using git cherry-pick `<commit>`:
 
+![Screenshot of Me using git cherry-pick `<commit>`](../assets/LuceroGitCherryPick.jpg)
+
 git log - in cases where a feature starts malfunctioning, the command is used during debugging in order to trace the exact timeline of when the feature starts malfunctioning. It is also used to review the contributions of my team members during the development cycle of the project.
 
 Screenshot of Me using git log:
