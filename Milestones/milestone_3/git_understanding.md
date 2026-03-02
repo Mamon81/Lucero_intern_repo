@@ -195,6 +195,18 @@ Poor commit messages can cause issues later on as it can cause a project's histo
 
 # Pull Requests
 
+## Creating A New Branch
+
+![Screenshot of List of Branches](../assets/LuceroPullRequest1.jpg)
+
+I created different branches to better separate the different milestones during my onboarding program. I am currently working on the milestone-3 branch since I'm currently working on issues related to Milestone 3. The image above displays the current list of branches and the current branch that I am currently on.
+
+## Creating A Pull Request
+
+![Screenshot of Previously Made Pull Request](../assets/LuceroPullRequest2.jpg)
+
+The image above shows a pull request I created to merge my reflection answers on Pull Requests into the main branch.
+
 1. Why are PRs important in a team workflow?
 
 Pull Requests are important in a team workflow as they serve as a checkpoint that ensures that the code being integrated into main branch is properly tested, assessed and reviewed. By providing a dedicated space for your team to review your changes, it allows them to be able to identify bugs and security issues early on, while still maintaining the stability of the main branch. Furthermore, it also fosters a collaborative culture as it can increase transparency, ensuring that every team member understands the reasoning behind the proposed changes to the code.
