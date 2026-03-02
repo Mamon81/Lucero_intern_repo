@@ -80,6 +80,56 @@ What surprised me when using these commands is how easy it is to apply specific 
 
 # Understand git bisect
 
+## Git Bisect Test Scenario
+
+To demonstrate git bisect in practice, I created a test file called bisect-test.js with a series of commits where a bug was intentionally introduced.
+
+### Test Setup
+
+Created `bisect-test.js` with a calculator function and made 5 commits:
+
+1. **1d76bf0**: Initial commit - Added calculator with addition operation
+
+![Screenshot of First Commit](../assets/LuceroCommit1.jpg)
+
+2. **842a801**: Added subtraction operation
+
+![Screenshot of Second Commit](../assets/LuceroCommit2.jpg)
+
+3. **0635692**: Added multiplication operation
+
+![Screenshot of Third Commit](../assets/LuceroCommit3.jpg)
+
+4. **1f46c01**: Added division operation (BUG: Used `a * b` instead of `a / b`)
+
+![Screenshot of Fourth Commit](../assets/LuceroCommit4.jpg)
+
+5. **3623b3e**: Added test cases for calculator operations
+
+![Screenshot of Fifth Commit](../assets/LuceroCommit5.jpg)
+
+### The Bug
+
+The division operation was implemented incorrectly:
+
+```javascript
+if (operation === 'divide') return a * b; // Should be a / b
+```
+
+When testing `calculator(6, 3, 'divide')`, it returned 18 instead of the expected 2.
+
+### Bisect Process
+
+![Screenshot of Bisect Process 1](../assets/LuceroGitBisect1.jpg)
+
+![Screenshot of Bisect Process 2](../assets/LuceroGitBisect2.jpg)
+
+### Results
+
+Git bisect successfully identified commit **1f46c01** ("feat: add division operation to calculator") as the exact commit that introduced the bug. This took only **2 test steps** instead of manually checking all 5 commits, demonstrating the efficiency of binary search in debugging.
+
+## Reflection
+
 1. What does git bisect do?
 
 Git bisect is a command used during debugging that utilizes a binary search algorithm to quickly and efficiently find the exact commit in a project's history that introduced a bug in the project. By marking down a commit as "good" where the code was still functional and marking down a commit as "bad" where the bug exists, Git will automatically check out the midpoint between these two commits in order for the developer to test the commits between these two commits. Furthermore, this command disregards branch structures or the commit message. Instead, it focuses on the functional state of the code in order to pinpoint the exact change that caused the bug or issue to occur
