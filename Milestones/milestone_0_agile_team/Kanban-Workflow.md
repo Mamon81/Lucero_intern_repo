@@ -60,7 +60,7 @@ Smaller batches of work can allow teams to be able to adapt quickly to changing 
 
 1. How does Kanban help manage priorities and avoid overload?
 
-Kanban helps manage priorities and avoid overload due to how they visualize tasks and its use of Work-in-Progress (WIP) limits. By mapping out and categorizing tasks onto different columns such as "In Progress" and "Backlog", the team is able to fully see their entire workflow. This also allows the Product Manager to be able to better prioritize the most valuable tasks by placing it at the top of the backlog, letting developers be aware of what to pull next and do. Meanwhile, using WIP limits protects team members from overcommitting and being overwhelmed by the number of tasks needed to be done. It forces the team members to focus on finishing current tasks before starting new ones, eliminating the stress of multitasking.
+Kanban helps manage priorities and avoid overload due to how they visualize tasks and its use of Work-in-Progress (WIP) limits. By mapping out and categorizing tasks onto different columns such as "In Progress" and "Backlog", the team is able to fully see their entire workflow. This also allows the Product Manager to be able to better prioritize the most valuable tasks by placing it at the top of the backlog, letting developers be aware of what to pull next and do. Meanwhile, using WIP limits protects team members being overwhelmed by the number of tasks needed to be done. It forces the team members to focus on finishing current tasks before starting new ones, eliminating the stress of multitasking.
 
 2. How can you improve your workflow using Kanban principles?
 
