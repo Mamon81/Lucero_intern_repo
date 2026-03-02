@@ -8,6 +8,12 @@ Jianna Monique M. Lucero
 
 The main challenge that I faced during setup was trying to install Tailwind CSS and configure it to my React Project. What I was initially following during the setup when I searched online had made me encountered errors when setting up Tailwind. I didn't realize that there was already a latest version of Tailwind CSS which was Tailwind CSS v4 and that I was using older commands in setting up Tailwind CSS, resulting in the terminal logging crashes. Aside from that, I had no issues during the setting up of a React Project with Tailwind CSS.
 
+### Evidence That Tailwind CSS is Working
+
+![Screenshot of Tailwind CSS Working](../assets/LuceroTailwind.jpg)
+
+The image displays the home page of the milestone-5-react-project. It features a series of feature buttons and an orange-colored background, showcasing a clean and organized layout. The precise spacing, rounded component corners, and subtle shadow effects confirm that Tailwind CSS is used to successfully style the UI elements. This image provided proves that the framework is correctly integrated and active within my project.
+
 ## Understanding Components & Props
 
 1. Why are components important in React?
