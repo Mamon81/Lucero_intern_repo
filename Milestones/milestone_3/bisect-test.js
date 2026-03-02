@@ -6,4 +6,6 @@ const calculator = (a, b, operation) => {
   return 0;
 };
 // eslint-disable-next-line no-console
-console.log('Result:', calculator(4, 3, 'multiply'));
+console.log('Addition test:', calculator(5, 3, 'add'));
+// eslint-disable-next-line no-console
+console.log('Division test:', calculator(10, 2, 'divide'));
