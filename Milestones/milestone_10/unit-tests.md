@@ -128,7 +128,7 @@ describe('MessageDisplay Component', () => {
 
 - Resilience to Refactoring
 
-If I rerrange my code and rename my variables, a "bad" test will fail since it consists of the test checking my code. By using RTL, the test doesn't care about my code and only cares if the user sees the same thing. This means that my tests will remain as pass even though I'm cleaning up my "messy" code.
+If I rearrange my code and rename my variables, a "bad" test will fail since it consists of the test checking my code. By using RTL, the test doesn't care about my code and only cares if the user sees the same thing. This means that my tests will remain as pass even though I'm cleaning up my "messy" code.
 
 - Increased User - Centric Confidence
 
