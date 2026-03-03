@@ -44,7 +44,11 @@ export default function ApiDemoScreen() {
       </ThemedText>
       <View style={styles.contentContainer}>
         {isLoading ? (
-          <ActivityIndicator size="large" color={theme.colors.primary} />
+          <ActivityIndicator
+            size="large"
+            color={theme.colors.primary}
+            testID="loading-indicator"
+          />
         ) : error ? (
           <View style={{ alignItems: 'center' }}>
             <Text style={{ color: theme.colors.error, marginBottom: 10 }}>

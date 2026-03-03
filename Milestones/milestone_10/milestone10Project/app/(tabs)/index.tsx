@@ -10,8 +10,11 @@ export default function HomeScreen() {
   const { theme } = useTheme();
 
   const handleApiDemo = () => {
-    // Navigates to the screen we will create in app/api-demo.tsx
     router.push('./api-demo');
+  };
+
+  const handleGestureDemo = () => {
+    router.push('./gesture-demo');
   };
 
   return (
@@ -24,6 +27,26 @@ export default function HomeScreen() {
         title="API Call Demo"
         type="solid"
         onPress={handleApiDemo}
+        buttonStyle={[
+          styles.buttonStyle,
+          {
+            backgroundColor: theme.colors.primary,
+            borderColor: theme.colors.primary,
+            marginBottom: 16,
+          },
+        ]}
+        titleStyle={[
+          styles.buttonTitle,
+          {
+            color: 'white',
+          },
+        ]}
+      />
+
+      <Button
+        title="Gesture Demo"
+        type="solid"
+        onPress={handleGestureDemo}
         buttonStyle={[
           styles.buttonStyle,
           {
