@@ -56,7 +56,7 @@ Jianna Monique M. Lucero
 
 1. What are the most common performance issues in React Native?
 
-- Unneccessary Re-renders
+- Unnecessary Re-renders
   This happens because the elements re-render even if the props or state have not been effectively modified.
 
 - Inefficient List Handling
