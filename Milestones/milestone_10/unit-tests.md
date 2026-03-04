@@ -149,3 +149,155 @@ When writing tests for my code, I need to ensure that they shouldn't fail for no
 2. What challenges did you encounter when simulating user interaction?
 
 One of the challenges that I encountered when simulating user interactions was configuring the environment for testing. When I initially tested MessageDisplay.test.js, there was an error that stated that I was using the wrong test environment. I then found out that I had to place this at the top of my MessageDisplay.test.js in order to run the testing process: `/** @jest-environment jsdom */`. This created a virtual browser environment (JSDOM), allowing React Testing Library to render components and simulate user interactions like button clicks.
+
+# Mocking API Calls in Jest
+
+## Sample React component that fetches and displays data from an API
+
+```javascript
+import React, { useState, useEffect } from 'react';
+import { fetchHabits } from '../../services/api';
+
+export default function APITest() {
+  const [habits, setHabits] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadHabits = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await fetchHabits();
+        setHabits(data);
+      } catch (err) {
+        setError(err.message || 'Failed to fetch habits');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadHabits();
+  }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <h2>API Test Component</h2>
+        <p>Loading habits...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h2>API Test Component</h2>
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h2>API Test Component</h2>
+      <p>Successfully loaded {habits.length} habits</p>
+      <ul>
+        {habits.map(habit => (
+          <li key={habit.id}>
+            <strong>{habit.name}</strong> - {habit.habitName} (
+            {habit.habitDuration})
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+## Test File Containing Multiple Test Cases for Sample Function
+
+```javascript
+/** @jest-environment jsdom */
+
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import APITest from './APITest';
+import { fetchHabits } from '../../services/api';
+
+jest.mock('../../services/api');
+
+describe('APITest Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test('renders habits successfully after loading', async () => {
+    const mockData = [
+      {
+        id: 1,
+        name: 'Morning Routine',
+        habitName: 'Meditation',
+        habitDuration: '30 mins',
+      },
+    ];
+
+    fetchHabits.mockResolvedValueOnce(mockData);
+
+    render(<APITest />);
+
+    expect(screen.getByText(/Loading habits.../i)).toBeTruthy();
+
+    await waitFor(() => {
+      expect(screen.getByText(/Successfully loaded 1 habits/i)).toBeTruthy();
+      expect(screen.getByText(/Morning Routine/i)).toBeTruthy();
+      expect(screen.getByText(/Meditation/i)).toBeTruthy();
+      expect(screen.getByText(/30 mins/i)).toBeTruthy();
+    });
+
+    expect(fetchHabits).toHaveBeenCalledTimes(1);
+  });
+
+  test('renders error message on API failure', async () => {
+    fetchHabits.mockRejectedValueOnce(new Error('Network Error'));
+
+    render(<APITest />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Error: Network Error/i)).toBeTruthy();
+    });
+  });
+});
+```
+
+## Testing the API Component
+
+![Screenshot of Testing the MessageDisplayComponent](../assets/LuceroReactTest2.jpg)
+
+## Reflection
+
+1. Why is it important to mock API calls in tests?
+
+Mocking API calls is important in tests because it ensures that there is a controlled environment where there are no "flaky" tests caused by server downtime. Furthermore, this can greatly speed up the development process, as there are no financial constraints, nor are there constraints on the number of requests. Lastly, they provide robust error handling since "edge cases" like 500-level server errors can be easily simulated. This means that it ensures that the test is failing because of my code, and not because of some external service.
+
+2. What are some common pitfalls when testing asynchronous code?
+
+- Forgetting to `return` or `await`
+
+If I don’t tell the test to wait for the asynchronous process to complete, the test will simply go to the end of the function and report a "Pass" without actually waiting for the code to execute. This creates a false positive, wherein the test looks successful but didn't actually check anything
+
+- Swallowing Errors and Unhandled Rejections
+
+If I don’t wrap a `try/catch` block around my async code or a `.catch()` block, I can lose errors or make the test simply crash without telling me. This makes the debugging process difficult since the test won't inform me why or where the code failed.
+
+- Race Conditions and Flaky Tests
+
+If I use fixed timers to wait for the change to happen, I need to be very careful since computers can process things at different speeds. If my computer is very slow, the timer will go off before the code finishes running, causing the test to fail at random.
+
+- Improper Mocking of Async Dependencies
+
+When I'm creating a mock API for my code to interact with, I need to make sure that I'm telling the code to expect a successful (resolved Promise) or failing (rejected Promise) situation. If I haven’t set up the mock to return a Promise, my code will break because it expects to `await` something that isn’t there.
+
+- Ignoring Lifecycle and Cleanup Issues
+
+When I'm doing tests, I need to make sure that I'm not doing an asynchronous task that finishes after I've already unmounted the UI. If I don’t clean up background tasks properly, I can end up with memory leaks or "act" errors where one test can interfere with another.
