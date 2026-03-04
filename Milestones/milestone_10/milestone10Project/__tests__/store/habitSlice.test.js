@@ -97,4 +97,3 @@ describe('fetchHabitsAsync thunk', () => {
     expect(state.error).toBe(null);
   });
 });
-
