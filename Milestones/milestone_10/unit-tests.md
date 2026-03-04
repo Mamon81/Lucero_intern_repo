@@ -301,3 +301,171 @@ When I'm creating a mock API for my code to interact with, I need to make sure t
 - Ignoring Lifecycle and Cleanup Issues
 
 When I'm doing tests, I need to make sure that I'm not doing an asynchronous task that finishes after I've already unmounted the UI. If I don’t clean up background tasks properly, I can end up with memory leaks or "act" errors where one test can interfere with another.
+
+# Testing Redux with Jest
+
+## Sample Redux Slice
+
+```javascript
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchHabits } from '../../../services/api';
+
+export const fetchHabitsAsync = createAsyncThunk(
+  'habits/fetchHabitsAsync',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await fetchHabits();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message || 'Failed to fetch habits');
+    }
+  }
+);
+
+const initialState = {
+  habits: [],
+  loading: false,
+  error: null,
+};
+
+export const habitSlice = createSlice({
+  name: 'habits',
+  initialState,
+  reducers: {
+    addHabit: (state, action) => {
+      state.habits.push(action.payload);
+    },
+    removeHabit: (state, action) => {
+      state.habits = state.habits.filter(habit => habit.id !== action.payload);
+    },
+  },
+  extraReducers: builder => {
+    builder.addCase(fetchHabitsAsync.fulfilled, (state, action) => {
+      state.loading = false;
+      state.habits = action.payload;
+    });
+  },
+});
+
+export const { addHabit, removeHabit } = habitSlice.actions;
+
+export default habitSlice.reducer;
+```
+
+## Test File Containing Multiple Test Cases for Redux slice
+
+```javascript
+import habitReducer, {
+  addHabit,
+  removeHabit,
+  fetchHabitsAsync,
+} from '../../app/store/slices/habitSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import { fetchHabits } from '../../services/api';
+
+jest.mock('../../services/api');
+
+describe('habitSlice reducer', () => {
+  const initialState = {
+    habits: [],
+    loading: false,
+    error: null,
+  };
+
+  test('should return the initial state', () => {
+    expect(habitReducer(undefined, { type: 'unknown' })).toEqual(initialState);
+  });
+
+  test('should handle addHabit', () => {
+    const newHabit = {
+      id: 1,
+      name: 'Jia',
+      habitName: 'Meditation',
+      habitDuration: '30 mins',
+    };
+
+    const action = addHabit(newHabit);
+    const newState = habitReducer(initialState, action);
+
+    expect(newState.habits).toHaveLength(1);
+    expect(newState.habits[0]).toEqual(newHabit);
+  });
+
+  test('should handle removeHabit', () => {
+    const currentState = {
+      habits: [
+        {
+          id: 1,
+          name: 'Monique',
+          habitName: 'Meditation',
+          habitDuration: '30 mins',
+        },
+      ],
+      loading: false,
+      error: null,
+    };
+
+    const action = removeHabit(1);
+    const newState = habitReducer(currentState, action);
+
+    expect(newState.habits).toHaveLength(0);
+  });
+});
+
+describe('fetchHabitsAsync thunk', () => {
+  let store;
+
+  beforeEach(() => {
+    store = configureStore({
+      reducer: {
+        habits: habitReducer,
+      },
+    });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test('should handle fulfilled state when habits are fetched successfully', async () => {
+    const mockHabits = [
+      {
+        id: 1,
+        name: 'User 1',
+        habitName: 'Meditation',
+        habitDuration: '30 minutes',
+      },
+      {
+        id: 2,
+        name: 'User 2',
+        habitName: 'Exercise',
+        habitDuration: '45 minutes',
+      },
+    ];
+
+    fetchHabits.mockResolvedValue(mockHabits);
+
+    await store.dispatch(fetchHabitsAsync());
+
+    const state = store.getState().habits;
+    expect(state.loading).toBe(false);
+    expect(state.habits).toEqual(mockHabits);
+    expect(state.habits).toHaveLength(2);
+    expect(state.error).toBe(null);
+  });
+});
+```
+
+## Testing the Redux Slice
+
+![Screenshot of Testing the Redux Slice](../assets/LuceroReduxTest.jpg)
+
+## Reflection
+
+1. What was the most challenging part of testing Redux?
+
+The most challenging part of testing Redux was for writing a test for an asynchronous Redux action. It was my first time implementing an asynchronous Redux action, and implementing "side effects" that don't happen instantly. Compared to testing actions that happen instantly, I had to learn to make async code that required me to wait for it to finish executing. It took me quite a while to figure out that testing an asynchronous Redux action required me to create a separate test section for conducting the tests for asynchronous actions.
+
+2. How do Redux tests differ from React component tests?
+
+The key differences between Redux tests and React component tests are based on what is being tested and the environment of testing. Redux testing is based on testing the logic and state management of an application as a pure JavaScript function, whereas React component testing is based on testing the user interface and user experience of an application. Redux reducers and actions are not related to the user interface of an application and can be tested without rendering them in a browser, making it possible to use any testing framework and ensuring that specific inputs produce specific outputs. On the other hand, React component testing is based on rendering the user interface of an application and ensuring it works as expected under different user interactions, making it necessary to use a testing framework like React Testing Library. In summary, Redux testing is for ensuring the logic of an application is working correctly, whereas React component testing is for ensuring the user experience of an application is working correctly.
