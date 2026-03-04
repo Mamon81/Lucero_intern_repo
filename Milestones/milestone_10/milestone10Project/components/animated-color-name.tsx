@@ -1,15 +1,18 @@
+import { memo } from 'react';
 import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { Text } from '@rneui/themed';
 
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
-export const AnimatedColorName = ({
-  name,
-  scale,
-}: {
+interface AnimatedColorNameProps {
   name: string;
   scale: any;
-}) => {
+}
+
+const AnimatedColorNameComponent = ({
+  name,
+  scale,
+}: AnimatedColorNameProps) => {
   const animatedTextStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
   }));
@@ -29,3 +32,5 @@ export const AnimatedColorName = ({
     </AnimatedText>
   );
 };
+
+export const AnimatedColorName = memo(AnimatedColorNameComponent);

@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 import { GestureDetector, Gesture } from 'react-native-gesture-handler';
 import Animated, {
@@ -8,7 +9,7 @@ import { AnimatedColorName } from '@/components/animated-color-name';
 import { COLOR_PALETTE } from '@/constants/colors';
 import { useColorGestures } from '@/hooks/use-color-gestures';
 
-export const ColorGestureDisplay = () => {
+const ColorGestureDisplayComponent = () => {
   const {
     colorIndex,
     colorIndexState,
@@ -18,25 +19,36 @@ export const ColorGestureDisplay = () => {
     triggerZoom,
   } = useColorGestures();
 
-  const panGesture = Gesture.Pan()
-    .runOnJS(true)
-    .onEnd((e) => {
-      if (e.translationX > 50) previousColor();
-      if (e.translationX < -50) nextColor();
-    });
+  const panGesture = useMemo(
+    () =>
+      Gesture.Pan()
+        .runOnJS(true)
+        .onEnd((e) => {
+          if (e.translationX > 50) previousColor();
+          if (e.translationX < -50) nextColor();
+        }),
+    [previousColor, nextColor]
+  );
 
-  const doubleTap = Gesture.Tap()
-    .runOnJS(true)
-    .numberOfTaps(2)
-    .onStart(() => {
-      triggerZoom();
-    });
+  const doubleTap = useMemo(
+    () =>
+      Gesture.Tap()
+        .runOnJS(true)
+        .numberOfTaps(2)
+        .onStart(() => {
+          triggerZoom();
+        }),
+    [triggerZoom]
+  );
+
+  const composedGesture = useMemo(
+    () => Gesture.Exclusive(panGesture, doubleTap),
+    [panGesture, doubleTap]
+  );
 
   const animatedBackgroundStyle = useAnimatedStyle(() => ({
     backgroundColor: withTiming(COLOR_PALETTE[colorIndex.value].hex),
   }));
-
-  const composedGesture = Gesture.Exclusive(panGesture, doubleTap);
 
   return (
     <GestureDetector gesture={composedGesture}>
@@ -49,6 +61,8 @@ export const ColorGestureDisplay = () => {
     </GestureDetector>
   );
 };
+
+export const ColorGestureDisplay = memo(ColorGestureDisplayComponent);
 
 const styles = StyleSheet.create({
   container: {
