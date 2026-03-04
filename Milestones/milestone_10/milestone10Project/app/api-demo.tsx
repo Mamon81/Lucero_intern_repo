@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { View, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import { Text, Button, useTheme } from '@rneui/themed';
 import { fetchHabits } from '@/services/api';
@@ -16,7 +16,7 @@ export default function ApiDemoScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const loadHabits = async () => {
+  const loadHabits = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -27,15 +27,41 @@ export default function ApiDemoScreen() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     loadHabits();
-  }, []);
+  }, [loadHabits]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     router.back();
-  };
+  }, [router]);
+
+  const renderItem = useCallback(
+    ({ item }: { item: Habit }) => <DataItem habit={item} />,
+    []
+  );
+
+  const buttonStyle = useMemo(
+    () => [
+      styles.buttonStyle,
+      {
+        borderColor: theme.colors.black,
+        backgroundColor: theme.colors.white,
+      },
+    ],
+    [theme.colors.black, theme.colors.white]
+  );
+
+  const titleStyle = useMemo(
+    () => [
+      styles.buttonTitle,
+      {
+        color: theme.colors.black,
+      },
+    ],
+    [theme.colors.black]
+  );
 
   return (
     <ThemedView style={styles.container}>
@@ -60,7 +86,7 @@ export default function ApiDemoScreen() {
           <FlatList
             data={habits}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <DataItem habit={item} />}
+            renderItem={renderItem}
             contentContainerStyle={styles.listContent}
             style={{ width: '100%' }}
           />
@@ -72,19 +98,8 @@ export default function ApiDemoScreen() {
           title="Back"
           type="outline"
           onPress={handleBack}
-          buttonStyle={[
-            styles.buttonStyle,
-            {
-              borderColor: theme.colors.black,
-              backgroundColor: theme.colors.white,
-            },
-          ]}
-          titleStyle={[
-            styles.buttonTitle,
-            {
-              color: theme.colors.black,
-            },
-          ]}
+          buttonStyle={buttonStyle}
+          titleStyle={titleStyle}
         />
       </View>
     </ThemedView>

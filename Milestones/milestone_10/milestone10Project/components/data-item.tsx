@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ListItem, Badge } from '@rneui/themed';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Habit } from '@/datatypes';
@@ -6,7 +7,7 @@ interface Props {
   habit: Habit;
 }
 
-export const DataItem: React.FC<Props> = ({ habit }) => {
+const DataItemComponent: React.FC<Props> = ({ habit }) => {
   return (
     <ListItem bottomDivider>
       <MaterialIcons name="timer" color="#A64C14" size={24} />
@@ -33,3 +34,5 @@ export const DataItem: React.FC<Props> = ({ habit }) => {
     </ListItem>
   );
 };
+
+export const DataItem = memo(DataItemComponent);
