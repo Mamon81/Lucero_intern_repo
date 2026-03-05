@@ -20,7 +20,7 @@ Jianna Monique M. Lucero
 
 - For exploring multiple solutions when it comes to troubleshooting a complex, non - urgent issue/solution that doesn't involve sensitive information
 
-- For quick quidance on complex, urgent and unsolved problems when colleagues are unavailable
+- For quick guidance on complex, urgent and unsolved problems when colleagues are unavailable
 
 ### When to search Google
 
