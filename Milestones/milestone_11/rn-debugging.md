@@ -64,7 +64,7 @@ This feature offers a real-time view of the hierarchy of the UI components, supp
 
 - Logs Viewer
 
-This feature combines all the different types of logs, such as console.log, Logcat, and iOS device logs, into a single view. It makes debugging easier because I can easily filter all the combined logs.
+This feature combines all the different types of logs, such as console.log, and iOS device logs, into a single view. It makes debugging easier because I can easily filter all the combined logs.
 
 - Crash Reporter
 
