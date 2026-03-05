@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchHabits } from '../../../services/api';
+import { fetchHabits } from '../../services/api';
 
 export const fetchHabitsAsync = createAsyncThunk(
   'habits/fetchHabitsAsync',

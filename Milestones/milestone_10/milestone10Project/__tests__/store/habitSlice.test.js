@@ -2,7 +2,7 @@ import habitReducer, {
   addHabit,
   removeHabit,
   fetchHabitsAsync,
-} from '../../app/store/slices/habitSlice';
+} from '../../store/slices/habitSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { fetchHabits } from '../../services/api';
 

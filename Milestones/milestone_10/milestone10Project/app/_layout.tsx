@@ -13,7 +13,7 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { rneuiTheme } from '@/constants/theme-config';
-import { store } from './store/store';
+import { store } from '../store/store';
 
 export const unstable_settings = {
   anchor: '(tabs)',
