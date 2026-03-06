@@ -14,12 +14,35 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { rneuiTheme } from '@/constants/theme-config';
 import { store } from '../store/store';
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://1934ce8c008e67dd77e535c9f33f8935@o4510996302004225.ingest.us.sentry.io/4510996303446016',
+
+  // Adds more context data to events (IP address, cookies, user, etc.)
+  // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
+  sendDefaultPii: true,
+
+  // Enable Logs
+  enableLogs: true,
+
+  // Configure Session Replay
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1,
+  integrations: [
+    Sentry.mobileReplayIntegration(),
+    Sentry.feedbackIntegration(),
+  ],
+
+  // uncomment the line below to enable Spotlight (https://spotlightjs.com)
+  // spotlight: __DEV__,
+});
 
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
-export default function RootLayout() {
+export default Sentry.wrap(function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
@@ -43,7 +66,7 @@ export default function RootLayout() {
       </GestureHandlerRootView>
     </Provider>
   );
-}
+});
 
 const styles = StyleSheet.create({
   root: {
