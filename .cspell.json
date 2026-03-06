@@ -1,6 +1,6 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["Jianna", "Lucero", "Monique", "flexbox"],
+  "words": ["Jianna", "Lucero", "Monique", "flexbox", "rneui", "Internationalisation", "localisation", "posthog"],
   "ignoreWords": []
 }
