@@ -9,7 +9,14 @@
     "rneui",
     "Internationalisation",
     "localisation",
-    "posthog"
+    "posthog",
+    "Bienvenido",
+    "Proyecto",
+    "Llamadas",
+    "Gestos",
+    "Idioma",
+    "Seleccionar",
+    "Español"
   ],
   "ignoreWords": []
 }
