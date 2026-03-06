@@ -1,6 +1,15 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["Jianna", "Lucero", "Monique", "flexbox", "rneui", "Internationalisation", "localisation", "posthog"],
+  "words": [
+    "Jianna",
+    "Lucero",
+    "Monique",
+    "flexbox",
+    "rneui",
+    "Internationalisation",
+    "localisation",
+    "posthog"
+  ],
   "ignoreWords": []
 }
