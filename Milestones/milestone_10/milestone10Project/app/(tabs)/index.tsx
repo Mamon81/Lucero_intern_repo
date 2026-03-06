@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button, useTheme } from '@rneui/themed';
+import { useTranslation } from 'react-i18next';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -8,6 +9,7 @@ import { ThemedView } from '@/components/themed-view';
 export default function HomeScreen() {
   const router = useRouter();
   const { theme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const handleApiDemo = () => {
     router.push('./api-demo');
@@ -17,14 +19,18 @@ export default function HomeScreen() {
     router.push('./gesture-demo');
   };
 
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title" style={styles.titleText}>
-        Welcome to the Milestone 10 Project!
+        {t('welcome')}
       </ThemedText>
 
       <Button
-        title="API Call Demo"
+        title={t('apiCallDemo')}
         type="solid"
         onPress={handleApiDemo}
         buttonStyle={[
@@ -44,7 +50,7 @@ export default function HomeScreen() {
       />
 
       <Button
-        title="Gesture Demo"
+        title={t('gestureDemo')}
         type="solid"
         onPress={handleGestureDemo}
         buttonStyle={[
@@ -52,6 +58,7 @@ export default function HomeScreen() {
           {
             backgroundColor: theme.colors.primary,
             borderColor: theme.colors.primary,
+            marginBottom: 40,
           },
         ]}
         titleStyle={[
@@ -61,6 +68,49 @@ export default function HomeScreen() {
           },
         ]}
       />
+
+      <ThemedText type="subtitle" style={styles.languageLabel}>
+        {t('selectLanguage')}
+      </ThemedText>
+
+      <View style={styles.languageButtonContainer}>
+        <Button
+          title={t('english')}
+          type={i18n.language === 'en' ? 'solid' : 'outline'}
+          onPress={() => changeLanguage('en')}
+          buttonStyle={[
+            styles.languageButton,
+            {
+              backgroundColor:
+                i18n.language === 'en' ? theme.colors.primary : 'transparent',
+              borderColor: theme.colors.primary,
+            },
+          ]}
+          titleStyle={{
+            color: i18n.language === 'en' ? 'white' : theme.colors.primary,
+            fontWeight: 'bold',
+          }}
+        />
+
+        <Button
+          title={t('spanish')}
+          type={i18n.language === 'es' ? 'solid' : 'outline'}
+          onPress={() => changeLanguage('es')}
+          buttonStyle={[
+            styles.languageButton,
+            {
+              backgroundColor:
+                i18n.language === 'es' ? theme.colors.primary : 'transparent',
+              borderColor: theme.colors.primary,
+              marginLeft: 12,
+            },
+          ]}
+          titleStyle={{
+            color: i18n.language === 'es' ? 'white' : theme.colors.primary,
+            fontWeight: 'bold',
+          }}
+        />
+      </View>
     </ThemedView>
   );
 }
@@ -91,5 +141,21 @@ const styles = StyleSheet.create({
   buttonTitle: {
     fontWeight: 'bold',
     fontSize: 18,
+  },
+  languageLabel: {
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  languageButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  languageButton: {
+    borderWidth: 2,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
   },
 });

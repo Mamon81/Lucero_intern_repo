@@ -10,11 +10,13 @@ import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
 import 'react-native-reanimated';
+import { I18nextProvider } from 'react-i18next';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { rneuiTheme } from '@/constants/theme-config';
 import { store } from '../store/store';
 import * as Sentry from '@sentry/react-native';
+import i18n from '@/services/i18n';
 
 Sentry.init({
   dsn: 'https://1934ce8c008e67dd77e535c9f33f8935@o4510996302004225.ingest.us.sentry.io/4510996303446016',
@@ -46,25 +48,33 @@ export default Sentry.wrap(function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <Provider store={store}>
-      <GestureHandlerRootView style={styles.root}>
-        <ThemeProvider theme={rneuiTheme}>
-          <NavigationThemeProvider
-            value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-          >
-            <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen name="api-demo" options={{ headerShown: false }} />
-              <Stack.Screen
-                name="gesture-demo"
-                options={{ headerShown: false }}
-              />
-            </Stack>
-            <StatusBar style="auto" />
-          </NavigationThemeProvider>
-        </ThemeProvider>
-      </GestureHandlerRootView>
-    </Provider>
+    <I18nextProvider i18n={i18n}>
+      <Provider store={store}>
+          <GestureHandlerRootView style={styles.root}>
+            <ThemeProvider theme={rneuiTheme}>
+              <NavigationThemeProvider
+                value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+              >
+                <Stack>
+                  <Stack.Screen
+                    name="(tabs)"
+                    options={{ headerShown: false }}
+                  />
+                  <Stack.Screen
+                    name="api-demo"
+                    options={{ headerShown: false }}
+                  />
+                  <Stack.Screen
+                    name="gesture-demo"
+                    options={{ headerShown: false }}
+                  />
+                </Stack>
+                <StatusBar style="auto" />
+              </NavigationThemeProvider>
+            </ThemeProvider>
+          </GestureHandlerRootView>
+      </Provider>
+    </I18nextProvider>
   );
 });
 
