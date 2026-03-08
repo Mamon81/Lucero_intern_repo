@@ -4,6 +4,8 @@ Set up VS Code and learn keyboard shortcuts
 
 My Top 10 Shortcuts
 
+Navigation
+
 - Ctrl+P Go to File...
 
 - Ctrl + \: Split Editor
@@ -13,6 +15,8 @@ My Top 10 Shortcuts
 - Ctrl + Shift + N: New window/instance
 
 - Ctrl + Shift + W: Close window/instance
+
+Editing
 
 - Ctrl + F: Find
 
@@ -40,7 +44,7 @@ While coding, I might need to rearrange or reorder lines of code. Using this sho
 
 If I'm looking for a specific word or variable quickly without having to scroll through hundreds of lines of code to find it, Ctrl + F is a useful shortcut for me to use
 
-Meanwhile, if I want to swap a specific word for a different word everytime it appears across the file, I can use Ctrl + H. By using Ctrl + H, I can easily replace a variable name and have it be updated everywhere else at once.
+Meanwhile, if I want to swap a specific word for a different word every time it appears across the file, I can use Ctrl + H. By using Ctrl + H, I can easily replace a variable name and have it be updated everywhere else at once.
 
 2. How can keyboard shortcuts improve your productivity?
 
