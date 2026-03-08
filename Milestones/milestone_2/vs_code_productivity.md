@@ -4,6 +4,8 @@ Set up VS Code and learn keyboard shortcuts
 
 My Top 10 Shortcuts
 
+Navigation
+
 - Ctrl+P Go to File...
 
 - Ctrl + \: Split Editor
@@ -13,6 +15,8 @@ My Top 10 Shortcuts
 - Ctrl + Shift + N: New window/instance
 
 - Ctrl + Shift + W: Close window/instance
+
+Editing
 
 - Ctrl + F: Find
 
