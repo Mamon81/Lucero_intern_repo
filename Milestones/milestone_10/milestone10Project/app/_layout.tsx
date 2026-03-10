@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/native';
 import { ThemeProvider } from '@rneui/themed';
 import { Stack } from 'expo-router';
+import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -13,6 +14,7 @@ import 'react-native-reanimated';
 import { I18nextProvider } from 'react-i18next';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useDeepLinking } from '@/hooks/use-deep-linking';
 import { rneuiTheme } from '@/constants/theme-config';
 import { store } from '../store/store';
 import * as Sentry from '@sentry/react-native';
@@ -40,39 +42,51 @@ Sentry.init({
   // spotlight: __DEV__,
 });
 
+const prefix = Linking.createURL('/');
+
+export const linking = {
+  prefixes: [prefix, 'milestone10project://', 'exp://'],
+  config: {
+    screens: {
+      '(tabs)': '',
+      'api-demo': 'api-demo',
+      'gesture-demo': 'gesture-demo',
+      modal: 'modal',
+    },
+  },
+};
+
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
 export default Sentry.wrap(function RootLayout() {
   const colorScheme = useColorScheme();
+  useDeepLinking();
 
   return (
     <I18nextProvider i18n={i18n}>
       <Provider store={store}>
-          <GestureHandlerRootView style={styles.root}>
-            <ThemeProvider theme={rneuiTheme}>
-              <NavigationThemeProvider
-                value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-              >
-                <Stack>
-                  <Stack.Screen
-                    name="(tabs)"
-                    options={{ headerShown: false }}
-                  />
-                  <Stack.Screen
-                    name="api-demo"
-                    options={{ headerShown: false }}
-                  />
-                  <Stack.Screen
-                    name="gesture-demo"
-                    options={{ headerShown: false }}
-                  />
-                </Stack>
-                <StatusBar style="auto" />
-              </NavigationThemeProvider>
-            </ThemeProvider>
-          </GestureHandlerRootView>
+        <GestureHandlerRootView style={styles.root}>
+          <ThemeProvider theme={rneuiTheme}>
+            <NavigationThemeProvider
+              value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+            >
+              <Stack>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen
+                  name="api-demo"
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name="gesture-demo"
+                  options={{ headerShown: false }}
+                />
+              </Stack>
+              <StatusBar style="auto" />
+            </NavigationThemeProvider>
+          </ThemeProvider>
+        </GestureHandlerRootView>
       </Provider>
     </I18nextProvider>
   );
