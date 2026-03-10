@@ -14,6 +14,7 @@ import 'react-native-reanimated';
 import { I18nextProvider } from 'react-i18next';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useDeepLinking } from '@/hooks/use-deep-linking';
 import { rneuiTheme } from '@/constants/theme-config';
 import { store } from '../store/store';
 import * as Sentry from '@sentry/react-native';
@@ -44,13 +45,13 @@ Sentry.init({
 const prefix = Linking.createURL('/');
 
 export const linking = {
-  prefixes: [prefix, 'milestone10project://'],
+  prefixes: [prefix, 'milestone10project://', 'exp://'],
   config: {
     screens: {
-      '(tabs)': 'home',
+      '(tabs)': '',
       'api-demo': 'api-demo',
       'gesture-demo': 'gesture-demo',
-      NotFound: '*',
+      modal: 'modal',
     },
   },
 };
@@ -61,6 +62,7 @@ export const unstable_settings = {
 
 export default Sentry.wrap(function RootLayout() {
   const colorScheme = useColorScheme();
+  useDeepLinking();
 
   return (
     <I18nextProvider i18n={i18n}>
